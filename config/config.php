@@ -8,12 +8,14 @@
     require_once 'model/dbPDO.php';
     require_once 'model/usuario.php';
     require_once 'model/usuarioPDO.php';
+    require_once 'model/wsREST.php';
     
     //Creamos un array que contiene las rutas de los archivos del controlador
     $controladores=["login" => "controller/cLogin.php",
                     "inicio" => "controller/cInicio.php",
                     "borrar" => "controller/cBorrarCuenta.php",
                     "editar" => "controller/cMiCuenta.php",
+                    "rest" => "controller/cRest.php",
                     "registro" => "controller/cRegistro.php"];
     
     //Creamos un array que contiene las rutas de los archivos de la vista
@@ -21,6 +23,7 @@
             "inicio" => "view/vInicio.php",
             "borrar" => "view/vBorrarCuenta.php",
             "editar" => "view/vMiCuenta.php",
+            "rest" => "view/vRest.php",
             "registro" => "view/vRegistro.php",
             "layout" => "view/layout.php"];
 ?>

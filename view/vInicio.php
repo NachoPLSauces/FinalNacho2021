@@ -27,5 +27,10 @@
                 <input class="enviar" type="submit" name="salir" value="Salir"/>
             </div>
         </fieldset>
+        
+        <div class="crearCuenta">
+            <p></p>
+            <input class="enviar" type='submit' name='rest' value='REST' />
+        </div>
     </form>
 </main>

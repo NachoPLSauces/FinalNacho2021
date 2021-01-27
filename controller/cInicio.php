@@ -27,9 +27,17 @@ if (isset($_REQUEST['borrar'])) {
     exit;
 } 
 
+//Si el usuario pulsa "REST" se le dirige a vRest
+if (isset($_REQUEST['rest'])) { 
+    $_SESSION['paginaEnCurso'] = $controladores['rest'];
+    header('Location: ./index.php'); 
+    exit;
+} 
+
 //Variables que guardan información del usuario
 $descripcionUsuario = $_SESSION["usuarioDAW202LoginLogoffMulticapa"]->getDescUsuario();
 $numConexiones = $_SESSION["usuarioDAW202LoginLogoffMulticapa"]->getNumConexiones();
+$ultimaConexion = $_SESSION['usuarioDAW202LoginLogoffMulticapa']->getFechaHoraUltimaConexion(); 
 
 //Incluimos la lógica de la vista
 $vista = $vistas['inicio'];
