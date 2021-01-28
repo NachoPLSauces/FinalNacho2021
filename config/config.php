@@ -1,4 +1,11 @@
 <?php
+    /**
+     * Fichero de configuración
+     * 
+     * Carga la librería de validación, la lógica del modelo y crea arrays 
+     * para almacenar la ruta de los ficheros del controlador y la vista
+     */
+
     //Llamada a la librería de validación
     require_once 'core/libreriaValidacion.php';
     

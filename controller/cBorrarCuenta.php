@@ -1,4 +1,13 @@
 <?php
+/**
+ * Borrar cuenta
+ * 
+ * Muestra la vista de borrarCuenta que permite al usuario volver al inicio o borrar su cuenta
+ * 
+ * @author Nacho del Prado Losada
+ * @since 27/01/2021
+ * @version 27/01/2021
+ */
 if(!isset($_SESSION["usuarioDAW202LoginLogoffMulticapa"])){
     header('Location: ./index.php'); 
     exit;

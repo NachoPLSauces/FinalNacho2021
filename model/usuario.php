@@ -1,4 +1,12 @@
 <?php
+    /**
+     * Clase usuario
+     * 
+     * Clase usuario que contiene los campos del usuario y métodos para acceder a ellos
+     * 
+     * @since 27/01/2021
+     * @version 27/01/2021
+     */
     class usuario{
         private $codUsuario;
         private $password;
@@ -7,7 +15,15 @@
         private $fechaHoraUltimaConexion;
         private $perfil;
         
-        //Se crea el constructor de la clase usuario
+        /**
+         * 
+         * @param string $codUsuario Código del usuario
+         * @param string $password Contraseña del usuario
+         * @param string $descUsuario Descripción del usuario
+         * @param int $numConexiones Número de conexiones realizadas
+         * @param int $fechaHoraUltimaConexion Fecha de la última conexión realizada
+         * @param string $perfil Tipo de perfil del usuario
+         */
         function __construct($codUsuario, $password, $descUsuario, $numConexiones, $fechaHoraUltimaConexion, $perfil){
             $this->codUsuario=$codUsuario;
             $this->password=$password;

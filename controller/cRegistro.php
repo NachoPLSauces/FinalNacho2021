@@ -1,4 +1,9 @@
 <?php
+/**
+ * Crear cuenta
+ * 
+ * Permite registrarse a un usuario nuevo
+ */
 if(isset($_REQUEST['cancelar'])){
     $_SESSION['paginaEnCurso'] = $controladores['login'];
     header("Location: index.php");

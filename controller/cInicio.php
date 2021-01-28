@@ -1,4 +1,14 @@
 <?php
+/**
+ * Inicio sesión
+ * 
+ * Permite que un usuario que a iniciado sesión navegue por la página
+ * Muestra el número de conexiones realizadas y la fecha de la última conexión
+ * 
+ * @author Nacho del Prado Losada
+ * @since 27/01/2021
+ * @version 27/01/2021
+ */
 if(!isset($_SESSION["usuarioDAW202LoginLogoffMulticapa"])){
     header('Location: ./index.php'); 
     exit;

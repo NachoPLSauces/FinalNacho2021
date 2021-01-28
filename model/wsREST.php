@@ -1,17 +1,17 @@
 <?php
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Clase wsREST
+ * 
+ * Clase con funciones para llamar a web services
+ * 
+ * @author Nacho del Prado Losada
+ * @since 27/01/2021
+ * @version 27/01/2021
  */
-
 class wsREST{
-    //
-    public static function miServicioREST(){
-        
-    }
-    
     /**
+     * Función servicioAPOD
+     * 
      * Llama al servicio API REST APOD(Astronomy Picture of the Day), que nos devuelve la imagen atronómica del
      * día e información relativa a esta.
      * 

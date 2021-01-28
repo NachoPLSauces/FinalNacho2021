@@ -1,15 +1,34 @@
 <?php
+    /**
+     * Clase usuarioPDO
+     * 
+     * Contiene métodos que permiten realizar distintas consultas sql
+     * 
+     * @author Nacho del Prado Losada
+     * @since 27/01/2021
+     * @version 27/01/2021
+     */
     class usuarioPDO implements UsuarioDB{
-        //Función que permite validar el Login de un usuario
+        
+        /**
+         * Función validarUsuario
+         * 
+         * Permite validar el Login de un usuario
+         * 
+         * @param string $codUsuario Código del usuario
+         * @param string $password Contraseña del usuario
+         * @return \usuario
+         */
         public static function validarUsuario($codUsuario, $password){
             $oUsuario=null;
             
-            $sql="SELECT * FROM Usuario where CodUsuario=? and Password=?";
-            $encriptarPassword=hash("sha256", ($codUsuario.$password));
-            $resultado= DBPDO::consultaSQL($sql, [$codUsuario, $encriptarPassword]);
+            $sql="SELECT * FROM Usuario where CodUsuario=? and Password=?"; 
+            $encriptarPassword=hash("sha256", ($codUsuario.$password)); //Se encripta el password
+            $resultado= DBPDO::consultaSQL($sql, [$codUsuario, $encriptarPassword]); //Se almacena el resultado de la consulta
             
             if($resultado->rowCount()>0){
                 $usuarioConsulta = $resultado->fetchObject();
+                //Se instancia un objeto usuario
                 $oUsuario = new usuario($usuarioConsulta->CodUsuario, 
                                         $usuarioConsulta->Password, 
                                         $usuarioConsulta->DescUsuario, 
@@ -27,7 +46,16 @@
             return $oUsuario;
         }
         
-        //Función que permite dar de alta un usuario
+        /**
+         * Función altaUsuario
+         * 
+         * Permite dar de alta a un usuario
+         * 
+         * @param string $codUsuario Código del usuario
+         * @param string $password Contraseña del usuario
+         * @param string $descUsuario Descripción del usuario
+         * @return \usuario
+         */
         public static function altaUsuario($codUsuario, $password, $descUsuario){
             $oUsuario=null;
             
@@ -49,7 +77,14 @@
             return $oUsuario;
         }
         
-        //Función que permite comprobar si ya existe un usuario con el codUsuario introducido
+        /**
+         * Función validarCodNoExiste
+         * 
+         * Comprueba si el código introducido ya existe
+         * 
+         * @param string $codUsuario Código del usuario que se va a comprobar
+         * @return string Devuelve un error si el código ya existe, null si está disponible
+         */
         public static function validarCodNoExiste($codUsuario){
             $error = "";
             $sql = "SELECT CodUsuario FROM Usuario WHERE CodUsuario=?";
@@ -63,7 +98,12 @@
             return $error;
         }
         
-        //Función que permite borrar un usuario
+        /**
+         * Función borrarUsuario
+         * 
+         * Permite borrar un usuario
+         * @param string $codUsuario Código del usuario
+         */
         public static function borrarUsuario($codUsuario){
             //Almaceno la consulta a sql en una variable
             $sql = "DELETE FROM Usuario WHERE CodUsuario=?";
@@ -71,7 +111,15 @@
             DBPDO::consultaSQL($sql, [$codUsuario]);
         }
         
-        //Función que permite modificar los campos de un usuario
+        /**
+         * Función modificar usuario
+         * 
+         * Permite modificar los campos de un usuario
+         * 
+         * @param string $descUsuario Descripción del usuario
+         * @param string $codUsuario Código del usuario
+         * @return \usuario Devuelve un objeto usuario
+         */
         public static function modificarUsuario($descUsuario, $codUsuario){
             $oUsuario = null;
             //Almaceno la consulta a sql en una variable

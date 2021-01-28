@@ -1,4 +1,9 @@
 <?php
+/**
+ * Web services
+ * 
+ * Muestra los web services que ofrecen otras páginas
+ */
 if(!isset($_SESSION["usuarioDAW202LoginLogoffMulticapa"])){
     header('Location: ./index.php'); 
     exit;

@@ -1,5 +1,21 @@
 <?php
+    /**
+     * Clase DBPDO
+     * 
+     * Contiene métodos para realizar consultas a la base de datos
+     * 
+     * @since 27/01/2021
+     * @version 27/01/2021
+     */
     class DBPDO implements DB{ //Creo una clase que se llama DB(DATA BASE).
+        
+        /**
+         * Función que permite realizar consultas a la base de datos
+         * 
+         * @param string $SQL Consulta sql
+         * @param array $parametros Parámetros de la consulta
+         * @return Devuelve el resultado de la consulta
+         */
         public static function consultaSQL($SQL, $parametros){ //Creo una función que se llama consultasSQL.
             try{
                 $miDB = new PDO(DSN, USER, PASSWORD); //Establezco la conexión a la base de datos instanciado un objeto PDO.

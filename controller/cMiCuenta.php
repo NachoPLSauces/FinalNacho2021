@@ -1,4 +1,13 @@
 <?php
+/**
+ * Editar campos
+ * 
+ * Permite al usuario editar su cuenta
+ * 
+ * @author Nacho del Prado Losada
+ * @since 27/01/2021
+ * @version 27/01/2021
+ */
 if(!isset($_SESSION["usuarioDAW202LoginLogoffMulticapa"])){
     header('Location: ./index.php'); 
     exit;

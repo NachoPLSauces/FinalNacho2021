@@ -1,4 +1,13 @@
 <?php
+/**
+ * Login
+ * 
+ * Muestra al usuario la vista del Login, que le permite iniciar sesión en la aplicación
+ * 
+ * @author Nacho del Prado Losada
+ * @since 27/01/2021
+ * @version 27/01/2021
+ */
 //Comprobamos si el usuario ha elegido crear una cuenta
 if(isset($_REQUEST['crear'])){
     $_SESSION['paginaEnCurso'] = $controladores['registro'];
