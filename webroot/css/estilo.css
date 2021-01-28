@@ -204,7 +204,6 @@ p{
     height: auto;
     margin: auto;
     box-shadow: 0 0 30px 0 rgba(0,0,0,.20);
-    border-bottom: 5px solid cadetblue;
 }
 .container header{
     display: flex;
@@ -216,6 +215,7 @@ p{
 .webService{
     height: 450px;
     width: 100%;
+    border-bottom: 5px solid cadetblue;
 }
 .apiRequest{
     margin: 0;
@@ -228,7 +228,7 @@ p{
 .apiRequest form{
     padding-top: 50px;
 }
-#servicio-rest{
+.servicio-rest{
     padding: 20px;
     margin-left: auto;
     width: 50%;
@@ -236,15 +236,19 @@ p{
     float: left;
     overflow: auto;
 }
-#servicio-rest p:nth-child(1){
+.APOD p:nth-child(1){
     font-size: 1.3rem;
     font-weight: 600;
 }
-#servicio-rest p:nth-child(3){
+.APOD p:nth-child(3){
     font-size: 1rem;
 }
-#servicio-rest img{
+.APOD img{
     height: 200px;
     width: auto;max-width: 100%;
     margin: 20px;
+}
+
+.publicApi{
+    
 }
