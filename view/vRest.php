@@ -16,9 +16,14 @@
                             <input type="date" name="fecha" value="<?php echo date('Y-m-d') ?>">
 
                             <input class="enviar" type="submit" name="enviarAPOD" value="Enviar">
-                            <input class="enviar" type="submit" name="volver" value="volver">
+                            <input class="enviar" type="submit" name="volver" value="Volver">
                         </div>
                     </fieldset>
+                    
+                    <div class="apiInfo">
+                        <h4>Información de la api: </h4>
+                        <a href="https://apod.nasa.gov/apod/astropix.html" target="_blank"> APOD Nasa</a>
+                    </div>
                 </form>
             </div>
 
@@ -50,9 +55,14 @@
                             ?>">
 
                             <input class="enviar" type="submit" name="enviarPublicApis" value="Enviar">
-                            <input class="enviar" type="submit" name="volver" value="volver">
+                            <input class="enviar" type="submit" name="volver" value="Volver">
                         </div>
                     </fieldset>
+                    
+                    <div class="apiInfo">
+                        <h4>Información de la api: </h4>
+                        <a href="https://api.publicapis.org/" target="_blank"> Public apis</a>
+                    </div>
                 </form>
             </div>
 
