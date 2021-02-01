@@ -25,6 +25,12 @@
                     "rest" => "controller/cRest.php",
                     "registro" => "controller/cRegistro.php"];
     
+    //Creo un array que contiene las rutas de los archivos del controlador que requieren que el usuario haya iniciado sesión
+    $controladoresAutorizado = ["inicio" => "controller/cInicio.php",
+                                "borrar" => "controller/cBorrarCuenta.php",
+                                "editar" => "controller/cMiCuenta.php",
+                                "rest" => "controller/cRest.php"];
+    
     //Creamos un array que contiene las rutas de los archivos de la vista
     $vistas=["login" => "view/vLogin.php",
             "inicio" => "view/vInicio.php",
