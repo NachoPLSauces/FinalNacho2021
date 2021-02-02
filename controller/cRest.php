@@ -10,7 +10,7 @@ if(!isset($_SESSION["usuarioDAW202LoginLogoffMulticapa"])){
 }
 
 //Si el usuario pulsa "Volver" se le dirige al inicio
-if (isset($_REQUEST['volver'])) { 
+if (isset($_REQUEST['flechaVolver'])) { 
     $_SESSION['paginaEnCurso'] = $controladores['inicio'];
     header('Location: ./index.php'); 
     exit;
@@ -51,6 +51,15 @@ if($aServicioPublicApis){
     $descripcionApiEnCurso = $aServicioPublicApis['entries'][0]['Description'];
     $linkApiEnCurso = $aServicioPublicApis['entries'][0]['Link'];
     $categoriaApiEnCurso = $aServicioPublicApis['entries'][0]['Category'];
+}
+
+/**
+ * Mostrar Calculadora
+ * 
+ * Muestra el resultado obtenido
+ */
+if(isset($_REQUEST['enviarCalculadora'])) { 
+    $resultado = wsREST::servicioCalculadora($_REQUEST['operacion'], $_REQUEST['num1'], $_REQUEST['num2']);
 }
 
 //Incluimos la lógica de la vista
