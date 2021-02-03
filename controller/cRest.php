@@ -63,6 +63,10 @@ if(isset($_REQUEST['enviarCalculadora'])) {
     $resultado = wsREST::servicioCalculadora($_REQUEST['operacion'], $_REQUEST['num1'], $_REQUEST['num2']);
 }
 
+if(isset($_REQUEST['enviarDescripcion'])) { 
+    $aRespuesta = wsREST::servicioBuscarDepartamentosPorDescripcion($_REQUEST['descDepartamento']);
+}
+
 //Incluimos la lógica de la vista
 $vista = $vistas['rest'];
 require_once $vistas['layout'];

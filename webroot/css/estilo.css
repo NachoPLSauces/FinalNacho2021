@@ -368,6 +368,19 @@ button{
     margin: 20px;
 }
 
+.apiDepartamentos div{
+    height: auto;width: auto;
+    padding: 10px;
+    border-bottom: 1px solid grey;
+}
+.apiDepartamentos h2{
+    font-size: 1.5rem;
+    padding: 0;
+    margin-bottom: 3px;
+}
+.apiDepartamentos h3{
+    font-size: 1rem;
+}
 .apiInfo{
     margin: auto;
     padding: 20px;
