@@ -10,14 +10,18 @@
         
         <div class="webService">
             <div class="apiRequest">
-                <form>
+                <form name="apod" action="<?php $_SERVER['PHP_SELF']?>" method="post">
                     <fieldset>
                         <div>
                             <h2>APOD Nasa</h2>
                         </div>
 
                         <div>
-                            <input type="date" name="fecha" value="<?php echo date('Y-m-d') ?>">
+                            <input type="date" name="fecha" value="<?php if(isset($_SERVER['fechaAPOD'])){
+                                echo $_SERVER['fechaAPOD'];
+                            }else{
+                                echo date('Y-m-d');
+                            } ?>">
 
                             <input class="enviar" type="submit" name="enviarAPOD" value="Enviar">
                         </div>
@@ -41,7 +45,7 @@
         
         <div class="webService">
             <div class="apiRequest">
-                <form>
+                <form name="apis" action="<?php $_SERVER['PHP_SELF']?>" method="post">
                     <fieldset>
                         <div>
                             <h2>Public APIs</h2>
@@ -50,10 +54,8 @@
                         <div>
                             <label for="titulo">Título de la API</label>
                             <input type="text" id="titulo" name="titulo" value="<?php 
-                                if(isset($_REQUEST["titulo"])){
-                                    echo $_REQUEST["titulo"];
-                                }else{
-                                    echo "cats";
+                                if(isset($_SERVER["tituloAPI"])){
+                                    echo $_SERVER["tituloAPI"];
                                 }
                             ?>">
 
@@ -84,19 +86,20 @@
         
         <div class="webService">
             <div class="apiRequest">
-                <form>
+                <form name="calculadora" action="<?php $_SERVER['PHP_SELF']?>" method="post">
                     <fieldset>
                         <div>
-                            <h2>Calculadora Rata</h2>
+                            <h2>Calculadora</h2>
                         </div>
 
                         <div>
-                            <label for="operacion">Suma - 1, Resta - 2, Multiplicación - 3, División - 4</label>
-                            <input type="text" id="operacion" name="operacion" value="<?php 
-                                if(isset($_REQUEST["operacion"])){
-                                    echo $_REQUEST["operacion"];
-                                }
-                            ?>">
+                            <label for="operacion">Elige una operación </label>
+                            <select id="operacion" name="operacion">
+                                <option value="1" <?php if($_REQUEST["operacion"]==1){ echo 'selected';} ?>>Suma</option>
+                                <option value="2" <?php if($_REQUEST["operacion"]==2){ echo 'selected';} ?>>Resta</option>
+                                <option value="3" <?php if($_REQUEST["operacion"]==3){ echo 'selected';} ?>>Multiplicación</option>
+                                <option value="4" <?php if($_REQUEST["operacion"]==4){ echo 'selected';} ?>>División</option>
+                            </select><br><br>
                             
                             <label for="num1">Primer número</label>
                             <input type="text" id="num1" name="num1" value="<?php 
@@ -117,8 +120,8 @@
                     </fieldset>
                     
                     <div class="apiInfo">
-                        <h4>Información de la api: </h4>
-                        <a href="https://api.publicapis.org/" target="_blank"> Public apis</a>
+                        <h4> </h4>
+                        <a href="#" target="_blank"></a>
                     </div>
                 </form>
             </div>

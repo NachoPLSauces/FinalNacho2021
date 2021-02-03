@@ -306,6 +306,7 @@ p{
 /* ---------------------------------------------------------- */
 
 button{
+    position: absolute;
     background: transparent;
     border: none;
     cursor: pointer;

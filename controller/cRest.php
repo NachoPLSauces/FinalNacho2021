@@ -22,8 +22,8 @@ if (isset($_REQUEST['flechaVolver'])) {
  * Muestra la foto del día de la NASA
  */
 if(isset($_REQUEST['enviarAPOD'])) { //si se ha enviado una fecha
-    //llamamos al servicio y le pasamos la fecha introducida por el usuario
-    $aServicioAPOD = wsREST::sevicioAPOD($_REQUEST['fecha']);
+    $_SERVER['fechaAPOD'] = $_REQUEST['fecha']; //Se guarda el parámetro en una variable de sesión
+    $aServicioAPOD = wsREST::sevicioAPOD($_SERVER['fechaAPOD']); //llamamos al servicio y le pasamos la fecha introducida por el usuario
 }
 else {
     //llamamos al servicio y le pasamos la fecha de hoy
@@ -41,10 +41,11 @@ if($aServicioAPOD != null){
  * Muestra la primera API pública encontrada con el nombre introducido
  */
 if(isset($_REQUEST['enviarPublicApis'])) { 
-    $aServicioPublicApis = wsREST::servicioPublicAPIS($_REQUEST['titulo']);
+    $_SERVER["tituloAPI"] = $_REQUEST['titulo'];
+    $aServicioPublicApis = wsREST::servicioPublicAPIS($_SERVER["tituloAPI"]);
 }
 else{
-    $aServicioPublicApis = wsREST::servicioPublicAPIS("cats");
+    $aServicioPublicApis = null;
 }
 if($aServicioPublicApis){
     $nombreApiEnCurso = $aServicioPublicApis['entries'][0]['API'];
