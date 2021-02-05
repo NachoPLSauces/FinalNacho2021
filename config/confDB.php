@@ -11,9 +11,9 @@
      */
 
     //Conexión clase
-    /*define('DSN', 'mysql:host=192.168.20.19; dbname=DAW202DBProyectoTema5');
+    define('DSN', 'mysql:host=192.168.20.19; dbname=DAW202DBProyectoTema5');
     define('USER', 'usuarioDAW202DBProyectoTema5');
-    define('PASSWORD', 'paso');*/
+    define('PASSWORD', 'paso');
     
     //Conexión casa
     /*define('DSN', 'mysql:host=192.168.1.155; dbname=DAW202DBProyectoTema5');

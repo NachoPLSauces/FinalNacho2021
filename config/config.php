@@ -15,6 +15,7 @@
     require_once 'model/dbPDO.php';
     require_once 'model/usuario.php';
     require_once 'model/usuarioPDO.php';
+    require_once 'model/departamentoPDO.php';
     require_once 'model/wsREST.php';
     
     //Creamos un array que contiene las rutas de los archivos del controlador

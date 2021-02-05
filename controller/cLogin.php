@@ -23,14 +23,14 @@ if(isset($_REQUEST['enviar'])){
         $error = "Debes introducir un usuario y una contraseña";
     }
     else{
-        $oUsuario = usuarioPDO::validarUsuario($_REQUEST['usuario'], $_REQUEST['password']); //Se comprueba si existe el usuario
+        $validarUsuario = usuarioPDO::validarUsuario($_REQUEST['usuario'], $_REQUEST['password']); //Se comprueba si existe el usuario
             
-        if($oUsuario){
+        if($validarUsuario[0] != null){
             //Se guarda el usuario para comprobar si el usuario ha pasado por el Login al visualizar las demás páginas 
-            $_SESSION['usuarioDAW202LoginLogoffMulticapa'] = $oUsuario; 
+            $_SESSION['usuarioDAW202LoginLogoffMulticapa'] = $validarUsuario[0]; 
             
             //Se guarda la última conexión
-            $ultimaConexionAnterior = $_SESSION['usuarioDAW202LoginLogoffMulticapa']->getFechaHoraUltimaConexion();   
+            $ultimaConexionAnterior = $validarUsuario[1];   
 
             //Si no es la primera vez que el usuario se conecta, se guarda la última conexión
             if($ultimaConexionAnterior != null){

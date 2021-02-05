@@ -57,6 +57,110 @@ h2 a {
     height: 40px;
 }
 
+.content{
+    width: 100%;height: auto;
+    min-height: 250px;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    
+}
+.content>.navegacion{
+    width: 48%;
+    height: auto;
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.barraVertical{
+    height: auto;
+    min-height: 100%;
+    border: 1px solid lightgrey;
+    margin-right: 2%;
+    margin-left: 2%;
+    border-collapse: collapse;
+}
+.content>form{
+    margin: 0;
+}
+
+/* Mapa de navegación */
+.contenedorNav{
+    border: 1px solid grey;
+    border-radius: 3px;
+    height: 100%;max-height: 100%;
+    width: 400px;max-width: 100%;
+}
+.imagenesNav{
+    position: relative;
+    height: 80%;
+}
+.fotoNav{
+    position: relative;
+    height: 100%;
+    width: 100%;
+    display: none;
+    overflow:hidden;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: black;
+}
+.fotoNav img{
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    width: 100%;
+    opacity: 40%;
+}
+.fotoNav p{
+    width: 80%;
+    text-align: center;
+    position: relative;
+    font-weight: bold;
+    font-size: 1.2rem;
+    z-index: 3;
+}
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -32px;
+  padding:  16px;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+}
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+.prev:hover, .next:hover {
+  background-color: black;
+  color: white;
+}
+.puntos{
+    text-align: center;
+}
+.punto {
+  cursor: pointer;
+  height: 18px;
+  width: 18px;
+  margin: 20px 4px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .punto:hover {
+  background-color: #717171;
+}
+
 form{
     width: 400px;height: auto;
     margin: auto;
@@ -201,8 +305,20 @@ p{
 
 /* ---------------------------------------------------------- */
 
-
+button{
+    position: absolute;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+.flecha{
+    position: sticky;
+    margin-left: 8px;
+    margin-top: 15px;
+    top: 15px;
+}
 .container{
+    position: relative;
     width: 1000px;
     height: auto;
     margin: auto;
@@ -252,6 +368,19 @@ p{
     margin: 20px;
 }
 
+.apiDepartamentos div{
+    height: auto;width: auto;
+    padding: 10px;
+    border-bottom: 1px solid grey;
+}
+.apiDepartamentos h2{
+    font-size: 1.5rem;
+    padding: 0;
+    margin-bottom: 3px;
+}
+.apiDepartamentos h3{
+    font-size: 1rem;
+}
 .apiInfo{
     margin: auto;
     padding: 20px;
