@@ -21,6 +21,7 @@
          */
         public static function validarUsuario($codUsuario, $password){
             $oUsuario=null;
+            $fechaHoraUltimaConexion = null;
             
             $sql="SELECT * FROM Usuario where CodUsuario=? and Password=?"; 
             $encriptarPassword=hash("sha256", ($codUsuario.$password)); //Se encripta el password
@@ -28,22 +29,29 @@
             
             if($resultado->rowCount()>0){
                 $usuarioConsulta = $resultado->fetchObject();
+                $fechaHoraUltimaConexion = $usuarioConsulta->FechaHoraUltimaConexion; //Se almacena la fecha de la conexión anterior
+                
+                //Se actualiza la última conexión registrada en la base de datos
+                $sql = "UPDATE Usuario SET NumConexiones=NumConexiones+1, FechaHoraUltimaConexion=? WHERE CodUsuario=?";
+                DBPDO::consultaSQL($sql, [time(), $codUsuario]);
+                
+                $sql="SELECT * FROM Usuario where CodUsuario=?";
+                $resultado= DBPDO::consultaSQL($sql, [$codUsuario]);
+                $usuarioConsulta = $resultado->fetchObject();
+                
                 //Se instancia un objeto usuario
                 $oUsuario = new usuario($usuarioConsulta->CodUsuario, 
                                         $usuarioConsulta->Password, 
                                         $usuarioConsulta->DescUsuario, 
-                                        $usuarioConsulta->NumConexiones+1, 
+                                        $usuarioConsulta->NumConexiones, 
                                         $usuarioConsulta->FechaHoraUltimaConexion, 
                                         $usuarioConsulta->Perfil);
                 
                 date_default_timezone_set('Europe/Madrid');                 
-                //Se actualiza la última conexión registrada en la base de datos
-                $sql = "UPDATE Usuario SET NumConexiones=NumConexiones+1, FechaHoraUltimaConexion=? WHERE CodUsuario=?";
-
-                DBPDO::consultaSQL($sql, [time(), $codUsuario]);
+                
             }
             
-            return $oUsuario;
+            return [$oUsuario, $fechaHoraUltimaConexion];
         }
         
         /**

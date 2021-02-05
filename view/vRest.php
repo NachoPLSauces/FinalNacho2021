@@ -96,6 +96,8 @@
                             <label for="descDepartamento">Descripción del departamento</label>
                             <input type="text" id="descDepartamento" name="descDepartamento" value="<?php if(isset($_REQUEST['descDepartamento'])){
                                 echo $_REQUEST['descDepartamento'];
+                            }else{
+                                echo '';
                             }?>">
 
                             <input class="enviar" type="submit" name="enviarDescripcion" value="Enviar">
@@ -167,10 +169,13 @@
                     </fieldset>
                     
                     <div class="servicio-rest publicApi">
-                        <?php if($resultado){ ?>
+                        <?php if(isset($_REQUEST["operacion"])){
+                        if($resultado != null){ ?>
                             <h3>Resultado: </h3>
                             <p><?php echo $resultado?></p>
-                        <?php } ?>
+                        <?php 
+                        }
+                        } ?>
                     </div>
                     
                     <div class="apiInfo">

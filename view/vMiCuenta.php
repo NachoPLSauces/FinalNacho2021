@@ -23,8 +23,8 @@
                 <label for='numConexiones'>Número de conexiones </label><br>
                 <input class="readonly" type='text' id='numConexiones' name='numConexiones' value="<?php echo $_SESSION['usuarioDAW202LoginLogoffMulticapa']->getNumConexiones(); ?>" readonly/>
 
-                <label for='usuario'>Fecha y hora de la conexión </label><br>
-                <input class="readonly" type='text' id='usuario' name='usuario' value="<?php echo date("d-m-Y H:i:s", $_SESSION['usuarioDAW202LoginLogoffMulticapa']->getFechaHoraUltimaConexion()); ?>" readonly/>
+                <label for='fechaHora'>Fecha y hora de la conexión </label><br>
+                <input class="readonly" type='text' id='fechaHora' name='fechaHora' value="<?php echo date("d-m-Y H:i:s", $_SESSION['usuarioDAW202LoginLogoffMulticapa']->getFechaHoraUltimaConexion()); ?>" readonly/>
             </div>
 
             <div>
