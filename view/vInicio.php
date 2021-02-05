@@ -12,12 +12,11 @@
                         echo 'Es tu primera conexión';
                     } 
                     else{ 
-                        echo "Número de conexiones: ".$numConexiones;
+                        echo "Esta es la conexión número ".$numConexiones;
                     } ?>
                 </p>
                 <?php if(!empty($_SESSION['fechaHoraUltimaConexionAnterior'])){?>
-                
-                <p>Última conexión: <?php echo date("d-m-Y H:i:s", $_SESSION['fechaHoraUltimaConexionAnterior']); ?></p>
+                    <p>Última conexión: <?php echo date("d-m-Y H:i:s", $_SESSION['fechaHoraUltimaConexionAnterior']); ?></p>
                 <?php } ?>
             </div>
 
