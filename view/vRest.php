@@ -39,6 +39,8 @@
                     <p><?php echo $tituloEnCurso?></p>
                     <img src="<?php echo $imagenEnCurso?>">
                     <p><?php echo $descripcionEnCurso?></p>
+                <?php }else{?>
+                    <p><?php echo "ERROR: API no disponible" ?></p>
                 <?php } ?>
             </div>
         </div>
