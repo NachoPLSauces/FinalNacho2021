@@ -157,7 +157,7 @@
                                 <option value="4" <?php if(isset($_REQUEST["operacion"])){ if($_REQUEST["operacion"]==4){ echo 'selected';}} ?>>División</option>
                             </select><br><br>
                             
-                            <label for="num1">Primer número</label>
+                            <label for="num1">Primer número</label><br>
                             <span id="errorNum1"></span>
                             <input type="text" id="num1" name="num1" value="<?php 
                                 if(isset($_REQUEST["num1"])){
@@ -165,7 +165,7 @@
                                 }
                             ?>">
                             
-                            <label for="num2">Segundo número</label>
+                            <label for="num2">Segundo número</label><br>
                             <span id="errorNum2"></span>
                             <input type="text" id="num2" name="num2" value="<?php 
                                 if(isset($_REQUEST["num2"])){
