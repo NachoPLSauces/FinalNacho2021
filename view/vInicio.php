@@ -1,3 +1,4 @@
+<script type="text/javascript" src="./webroot/js/scriptValidacionFormularios.js"></script>
 <main>
     <form name="inicio" action="<?php $_SERVER['PHP_SELF']?>" method="post">
         <fieldset>

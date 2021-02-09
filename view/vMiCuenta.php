@@ -1,5 +1,5 @@
 <main>
-    <form name="editar" action="<?php $_SERVER['PHP_SELF']?>" method="post">
+    <form name="editar" action="<?php $_SERVER['PHP_SELF']?>" method="post" onsubmit="return validarMiCuenta()">
         <fieldset>
             <div>
                 <h2>Editar perfil</h2>

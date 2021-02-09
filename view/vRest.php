@@ -1,3 +1,4 @@
+<script src="./webroot/js/scriptValidacionFormularios.js"></script>
 <main>
     <div class="container">
         <header>
@@ -17,8 +18,8 @@
                         </div>
 
                         <div>
-                            <input type="date" name="fecha" value="<?php if(isset($_SERVER['fechaAPOD'])){
-                                echo $_SERVER['fechaAPOD'];
+                            <input type="date" name="fechaAPOD" id="fechaAPOD" max="<?php echo date('Y-m-d') ?>" value="<?php if(isset($_REQUEST['fechaAPOD'])){
+                                echo $_REQUEST['fechaAPOD'];
                             }else{
                                 echo date('Y-m-d');
                             } ?>">
@@ -54,10 +55,10 @@
                         </div>
 
                         <div>
-                            <label for="titulo">Título de la API</label>
-                            <input type="text" id="titulo" name="titulo" value="<?php 
-                                if(isset($_SERVER["tituloAPI"])){
-                                    echo $_SERVER["tituloAPI"];
+                            <label for="tituloAPI">Título de la API</label>
+                            <input type="text" id="tituloAPI" name="tituloAPI" value="<?php 
+                                if(isset($_REQUEST["tituloAPI"])){
+                                    echo $_REQUEST["tituloAPI"];
                                 }
                             ?>">
 
@@ -73,16 +74,20 @@
             </div>
 
             <div class="servicio-rest publicApi">
-                <?php if($aServicioPublicApis){ ?>
-                    <h3>Nombre</h3>
-                    <p><?php echo $nombreApiEnCurso?></p>
-                    <h3>Descripción</h3>
-                    <p><?php echo $descripcionApiEnCurso?></p>
-                    <h3>Categoría</h3>
-                    <p><?php echo $categoriaApiEnCurso?></p>
-                    <h3>Link</h3>
-                    <a href="<?php echo $linkApiEnCurso?>" target="_blank"><?php echo $linkApiEnCurso?></a>
-                <?php } ?>
+                <?php if(isset($_REQUEST["tituloAPI"])){
+                    if($aServicioPublicApis['entries'] != null){ ?>
+                        <h3>Nombre</h3>
+                        <p><?php echo $nombreApiEnCurso?></p>
+                        <h3>Descripción</h3>
+                        <p><?php echo $descripcionApiEnCurso?></p>
+                        <h3>Categoría</h3>
+                        <p><?php echo $categoriaApiEnCurso?></p>
+                        <h3>Link</h3>
+                        <a href="<?php echo $linkApiEnCurso?>" target="_blank"><?php echo $linkApiEnCurso?></a>
+                    <?php }else{ ?>
+                        <h3>No se ha encontrado ninguna API</h3>
+                    <?php }
+                }?>
             </div>
         </div>
         
@@ -129,7 +134,7 @@
                             </div>
                         <?php }
                     }else{?>
-                        <p><?php $aRespuesta["Error"] ?></p>
+                        <h3><?php echo $aRespuesta["Error"] ?></h3>
                     <?php } 
                 } ?>
             </div>
@@ -137,7 +142,7 @@
         
         <div class="webService">
             <div class="apiRequest">
-                <form name="calculadora" action="<?php $_SERVER['PHP_SELF']?>" method="post">
+                <form name="calculadora" action="<?php $_SERVER['PHP_SELF']?>" method="post" onsubmit="return validarCalculadora()">
                     <fieldset>
                         <div>
                             <h2>Calculadora</h2>
@@ -153,6 +158,7 @@
                             </select><br><br>
                             
                             <label for="num1">Primer número</label>
+                            <span id="errorNum1"></span>
                             <input type="text" id="num1" name="num1" value="<?php 
                                 if(isset($_REQUEST["num1"])){
                                     echo $_REQUEST["num1"];
@@ -160,6 +166,7 @@
                             ?>">
                             
                             <label for="num2">Segundo número</label>
+                            <span id="errorNum2"></span>
                             <input type="text" id="num2" name="num2" value="<?php 
                                 if(isset($_REQUEST["num2"])){
                                     echo $_REQUEST["num2"];
@@ -170,19 +177,19 @@
                         </div>
                     </fieldset>
                     
-                    <div class="servicio-rest publicApi">
-                        <?php if(isset($_REQUEST["operacion"])){
-                        if($resultado != null){ ?>
-                            <h3>Resultado: </h3>
-                            <p><?php echo $resultado?></p>
-                        <?php 
-                        }
-                        } ?>
-                    </div>
-                    
                     <div class="apiInfo">
                         <h4> </h4>
                         <a href="#" target="_blank"></a>
+                    </div>
+                    
+                    <div class="servicio-rest publicApi">
+                        <?php if(isset($_REQUEST["operacion"])){
+                            if($resultado != null){ ?>
+                                <h3>Resultado: </h3>
+                                <p><?php echo $resultado?></p>
+                            <?php 
+                            }
+                        } ?>
                     </div>
                 </form>
             </div>

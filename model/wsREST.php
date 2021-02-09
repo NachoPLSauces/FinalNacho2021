@@ -49,11 +49,11 @@ class wsREST{
      * @return string Resultado
      */
     public static function servicioCalculadora($tipo, $num1, $num2) {
-        return json_decode(file_get_contents("http://daw203.sauces.local/AppFinalRaul2021/api/calculadora.php?operaciones=$tipo&n1=$num1&n2=$num2"), true);
+        return json_decode(file_get_contents("http://daw203.ieslossauces.es/AppFinalRaul2021/api/calculadora.php?operaciones=$tipo&n1=$num1&n2=$num2"), true);
     }
     
     public static function servicioBuscarDepartamentosPorDescripcion($descripcion) {
-        return json_decode(file_get_contents("http://daw202.sauces.local/FinalNacho2021/api/buscarDepartamentos.php?descripcion=$descripcion"), true);
+        return json_decode(file_get_contents("http://daw202.ieslossauces.es/FinalNacho2021/api/buscarDepartamentos.php?descripcion=$descripcion"), true);
     }
 }
 

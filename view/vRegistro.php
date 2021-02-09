@@ -1,3 +1,4 @@
+<script src="./webroot/js/scriptValidacionFormularios.js"></script>
 <main>
     <div class="title">
         <div class="logo">
@@ -9,7 +10,7 @@
         </div>				
     </div>
 
-    <form name="registro" action="<?php $_SERVER['PHP_SELF']?>" method="post">
+    <form name="registro" action="<?php $_SERVER['PHP_SELF']?>" method="post" onsubmit="return validarRegistro()">
         <fieldset>
             <div>
                 <h2>Crear cuenta</h2>
@@ -17,7 +18,7 @@
 
             <div>
                 <label for='usuario'>Usuario </label><br>
-                <span style="color:red">
+                <span id="errorUsuario" style="color:red">
                     <?php
                     //Imprime el error en el caso de que se introduzca mal el nombre
                     if($aErrores["usuario"] != null){
@@ -26,7 +27,7 @@
                     ?> 
                 </span>
 
-                <input type='text' id='usuario' name='usuario' value="<?php 
+                <input type='text' id='usuario' name='usuario' onblur="validarUsuario()" value="<?php 
                     //Devuelve el campo nombre si se había introducido correctamente
                     if(isset($_REQUEST['usuario']) && $aErrores["usuario"] == null){
                         echo $_REQUEST['usuario'];
@@ -34,7 +35,7 @@
                 ?>"/>
 
                 <label for='descripcion' >Descripción </label><br>
-                <span style="color:red">
+                <span id="errorDescripcion" style="color:red">
                     <?php
                     //Imprime el error en el caso de que se introduzca mal el nombre
                     if($aErrores["descripcion"] != null){
@@ -43,7 +44,7 @@
                     ?> 
                 </span>
 
-                <input type='text' id="descripcion" name='descripcion' value="<?php 
+                <input type='text' id="descripcion" name='descripcion' onblur="validarDescripcion()" value="<?php 
                     //Devuelve el campo nombre si se había introducido correctamente
                     if(isset($_REQUEST['descripcion']) && $aErrores["descripcion"] == null){
                         echo $_REQUEST['descripcion'];
@@ -51,7 +52,7 @@
                 ?>"/>
 
                 <label for='password' >Contraseña </label><br>
-                <span style="color:red">
+                <span id="errorPassword" style="color:red">
                     <?php
                     //Imprime el error en el caso de que se introduzca mal el nombre
                     if($aErrores["password"] != null){
@@ -60,17 +61,19 @@
                     ?> 
                 </span>
 
-                <input type='password' id="password" name='password' value="<?php 
+                <input type='password' id="password" name='password' onblur="validarPassword()" value="<?php 
                     //Devuelve el campo nombre si se había introducido correctamente
                     if(isset($_REQUEST['password']) && $aErrores["password"] == null){
                         echo $_REQUEST['password'];
                     }
                 ?>"/>
 
-                <input class="enviar" type='submit' name='enviar' value='Crear cuenta' />
-
-                <input class="enviar" type='submit' name='cancelar' value='Cancelar' />
+                <input class="enviar" type='submit' name='enviar' value='Crear cuenta'/>
             </div>
         </fieldset>
+    </form>
+    
+    <form name="cancelar" action="<?php $_SERVER['PHP_SELF']?>" method="post">
+        <input class="enviar" type='submit' name='cancelar' value='Cancelar'/>
     </form>
 </main>

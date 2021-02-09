@@ -22,12 +22,7 @@ if (isset($_REQUEST['flechaVolver'])) {
  * Muestra la foto del día de la NASA
  */
 if(isset($_REQUEST['enviarAPOD'])) { //si se ha enviado una fecha
-    $errorAPOD = "" ; //Creamos una variable para almacenar errores
-    try{
-        $aServicioAPOD = wsREST::sevicioAPOD($_REQUEST['fecha']); //llamamos al servicio y le pasamos la fecha introducida por el usuario
-    } catch (Exception $ex) {
-        $errorAPOD = "ERROR";
-    }
+    $aServicioAPOD = wsREST::sevicioAPOD($_REQUEST['fechaAPOD']); //llamamos al servicio y le pasamos la fecha introducida por el usuario
     
 }
 else {
@@ -46,12 +41,12 @@ if($aServicioAPOD != null){
  * Muestra la primera API pública encontrada con el nombre introducido
  */
 if(isset($_REQUEST['enviarPublicApis'])) { 
-    $aServicioPublicApis = wsREST::servicioPublicAPIS($_REQUEST['titulo']);
+    $aServicioPublicApis = wsREST::servicioPublicAPIS($_REQUEST['tituloAPI']);
 }
 else{
-    $aServicioPublicApis = null;
+    $aServicioPublicApis['entries'] = null;
 }
-if($aServicioPublicApis){
+if($aServicioPublicApis['entries'] != null){
     $nombreApiEnCurso = $aServicioPublicApis['entries'][0]['API'];
     $descripcionApiEnCurso = $aServicioPublicApis['entries'][0]['Description'];
     $linkApiEnCurso = $aServicioPublicApis['entries'][0]['Link'];

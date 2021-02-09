@@ -37,7 +37,7 @@ if(isset($_REQUEST['enviar'])){
     //Comprobar que el campo apellido1 se ha rellenado con alfabéticos
     $aErrores["descripcion"] = validacionFormularios::comprobarAlfaNumerico($_REQUEST['descripcion'], 200, 1, OBLIGATORIO);
     //Comprobar que el campo apellido2 se ha rellenado con alfabéticos
-    $aErrores["password"] = validacionFormularios::validarPassword($_REQUEST['password'], 16, 2, 3, OBLIGATORIO);
+    $aErrores["password"] = validacionFormularios::validarPassword($_REQUEST['password'], 16, 2, 2, OBLIGATORIO);
     
     //Comprobar si algún campo del array de errores ha sido rellenado
     foreach ($aErrores as $clave => $valor) {
