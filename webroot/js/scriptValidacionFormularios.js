@@ -24,12 +24,19 @@ function validarUsuario(){
     
     if(usuario.length == 0){
         document.getElementById("errorUsuario").innerHTML = "CAMPO OBLIGATORIO";
+        document.getElementById("usuario").style.border = "1px solid red";
+        return false;
+    }else if(!(/[A-z]+/.test(usuario))){
+        document.getElementById("errorUsuario").innerHTML = "Sólo se admiten letras";
+        document.getElementById("usuario").style.border = "1px solid red";
         return false;
     }else if(usuario.length > 8){
         document.getElementById("errorUsuario").innerHTML = "Máximo 8 caracteres";
+        document.getElementById("usuario").style.border = "1px solid red";
         return false;
     }else{
         document.getElementById("errorUsuario").innerHTML = "";
+        document.getElementById("usuario").style.border = "1px solid green";
         return true;
     }
 }
@@ -39,12 +46,34 @@ function validarPassword(){
     
     if(password.length == 0){
         document.getElementById("errorPassword").innerHTML = "CAMPO OBLIGATORIO";
+        document.getElementById("password").style.border = "1px solid red";
         return false;
     }else if(password.length > 8){
         document.getElementById("errorPassword").innerHTML = "Máximo 8 caracteres";
+        document.getElementById("password").style.border = "1px solid red";
         return false;
     }else{
         document.getElementById("errorPassword").innerHTML = "";
+        document.getElementById("password").style.border = "1px solid green";
+        return true;
+    }
+}
+//Función para validar el campo confirmar contraseña
+function validarPassword(){
+    var password  = document.getElementById("confirmarPassword").value;
+    
+    if(password.length == 0){
+        document.getElementById("errorPassword").innerHTML = "CAMPO OBLIGATORIO";
+        document.getElementById("password").style.border = "1px solid red";
+        return false;
+    }else if(password.length > 8){
+        document.getElementById("errorPassword").innerHTML = "Máximo 8 caracteres";
+        document.getElementById("password").style.border = "1px solid red";
+        return false;
+    }else{
+        document.getElementById("errorPassword").innerHTML = "";
+        document.getElementById("password").style.border = "1px solid green";
+        return true;
     }
 }
 //Función para validar la descripción
@@ -53,12 +82,16 @@ function validarDescripcion(){
     
     if(descripcion.length == 0){
         document.getElementById("errorDescripcion").innerHTML = "CAMPO OBLIGATORIO";
+        document.getElementById("descripcion").style.border = "1px solid red";
         return false;
     }else if(descripcion.length > 250){
         document.getElementById("errorDescripcion").innerHTML = "Máximo 250 caracteres";
+        document.getElementById("descripcion").style.border = "1px solid red";
         return false;
     }else{
         document.getElementById("errorDescripcion").innerHTML = "";
+        document.getElementById("descripcion").style.border = "1px solid green";
+        return true;
     }
 }
 

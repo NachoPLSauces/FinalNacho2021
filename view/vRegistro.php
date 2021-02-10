@@ -17,7 +17,7 @@
             </div>
 
             <div>
-                <label for='usuario'>Usuario </label><br>
+                <label for='usuario'>Usuario <span>*</span></label><br>
                 <span id="errorUsuario" style="color:red">
                     <?php
                     //Imprime el error en el caso de que se introduzca mal el nombre
@@ -34,7 +34,7 @@
                     }
                 ?>"/>
 
-                <label for='descripcion' >Descripción </label><br>
+                <label for='descripcion' >Descripción <span>*</span></label><br>
                 <span id="errorDescripcion" style="color:red">
                     <?php
                     //Imprime el error en el caso de que se introduzca mal el nombre
@@ -51,7 +51,7 @@
                     }
                 ?>"/>
 
-                <label for='password' >Contraseña </label><br>
+                <label for='password' >Contraseña <span>*</span></label><br>
                 <span id="errorPassword" style="color:red">
                     <?php
                     //Imprime el error en el caso de que se introduzca mal el nombre
