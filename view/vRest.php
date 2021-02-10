@@ -1,3 +1,4 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="./webroot/js/scriptValidacionFormularios.js"></script>
 <main>
     <div class="container">
@@ -193,7 +194,39 @@
                     </div>
                 </form>
             </div>
-            
+        </div>   
+        
+        <div class="webService">
+            <div class="apiRequest">
+                <form name="buscarVideos" action="<?php $_SERVER['PHP_SELF']?>" method="post">
+                    <fieldset>
+                        <div>
+                            <h2>Buscar vídeos en YouTube</h2>
+                        </div>
+
+                        <div>
+                            <label for="tituloVideo">Título del vídeo</label>
+                            <input type="text" id="tituloVideo" name="tituloVideo" value="<?php if(isset($_REQUEST['tituloVideo'])){
+                                echo $_REQUEST['tituloVideo'];
+                            }else{
+                                echo '';
+                            }?>">
+
+                            <input class="enviar" type="submit" name="enviarVideo" id="enviarVideo" value="Enviar">
+                        </div>
+                    </fieldset>
+
+                    <div class="apiInfo">
+                        <h4> </h4>
+                        <a href="#" target="_blank"></a>
+                    </div>
+                </form>
+            </div>
+
+            <div class="servicio-rest apiYoutube">
+                
+            </div>
+        </div>
             
     </div>
     

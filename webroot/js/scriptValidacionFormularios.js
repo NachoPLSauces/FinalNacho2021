@@ -89,11 +89,26 @@ function validarCalculadora(){
     }
     
     return entradaOK;
-    
-    
 }
 
-
+//JQuery
+$(document).ready(function(){
+    $("#enviarVideo").click(function(){
+        var titulo = $("#tituloVideo").val();
+        
+        $.get("https://www.googleapis.com/youtube/v3/search",{
+            part: 'snippet, id',
+            q: titulo,
+            pageToken: '',
+            type: 'video',
+            key: 'AIzaSyAS8oJv6GhVOguGcRlDUCmqxIPqL4uWXGI'
+        }, function(data){
+            console.log(data.items);
+        });
+        
+        return false;
+    });
+});
 
 
 
