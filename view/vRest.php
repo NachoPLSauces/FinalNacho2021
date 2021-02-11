@@ -6,13 +6,22 @@
             <h2>Uso de web services REST</h2>
         </header>
         
+        <div class="navegadorAPIs">
+            <ul>
+                <li><a href="#apod">APOD</a></li>
+                <li><a href="#apis">Public APIs</a></li>
+                <li><a href="#buscarDepartamento">Buscar departamentos</a></li>
+                <li><a href="#calculadora">Calculadora</a></li>                
+            </ul>
+        </div>
+        
         <form class="flecha">
             <button type="submit" name="flechaVolver"><img src="./webroot/media/img/flecha.png" height="30px"></button>
         </form>
         
         <div class="webService">
             <div class="apiRequest">
-                <form name="apod" action="<?php $_SERVER['PHP_SELF']?>" method="post">
+                <form name="apod" id="apod" action="<?php $_SERVER['PHP_SELF']?>" method="post">
                     <fieldset>
                         <div>
                             <h2>APOD Nasa</h2>
@@ -24,8 +33,6 @@
                             }else{
                                 echo date('Y-m-d');
                             } ?>">
-
-                            <input class="enviar" type="submit" name="enviarAPOD" value="Enviar">
                         </div>
                     </fieldset>
                     
@@ -36,20 +43,14 @@
                 </form>
             </div>
 
-            <div class="servicio-rest APOD">
-                <?php if($aServicioAPOD){ ?>
-                    <p><?php echo $tituloEnCurso?></p>
-                    <img src="<?php echo $imagenEnCurso?>">
-                    <p><?php echo $descripcionEnCurso?></p>
-                <?php }else{?>
-                    <p><?php echo "ERROR: API no disponible" ?></p>
-                <?php } ?>
+            <div class="servicio-rest APOD" id="APOD">
+                
             </div>
         </div>
         
         <div class="webService">
             <div class="apiRequest">
-                <form name="apis" action="<?php $_SERVER['PHP_SELF']?>" method="post">
+                <form name="apis" id="apis" action="<?php $_SERVER['PHP_SELF']?>" method="post">
                     <fieldset>
                         <div>
                             <h2>Public APIs</h2>
@@ -57,13 +58,13 @@
 
                         <div>
                             <label for="tituloAPI">Título de la API</label>
-                            <input type="text" id="tituloAPI" name="tituloAPI" value="<?php 
+                            <input type="text" id="tituloAPI" name="tituloAPI" placeholder="Introduce el texto a buscar" value="<?php 
                                 if(isset($_REQUEST["tituloAPI"])){
                                     echo $_REQUEST["tituloAPI"];
                                 }
                             ?>">
 
-                            <input class="enviar" type="submit" name="enviarPublicApis" value="Enviar">
+                            <input class="enviar" type="submit" id="enviarPublicApis" name="enviarPublicApis" value="Enviar">
                         </div>
                     </fieldset>
                     
@@ -74,21 +75,7 @@
                 </form>
             </div>
 
-            <div class="servicio-rest publicApi">
-                <?php if(isset($_REQUEST["tituloAPI"])){
-                    if($aServicioPublicApis['entries'] != null){ ?>
-                        <h3>Nombre</h3>
-                        <p><?php echo $nombreApiEnCurso?></p>
-                        <h3>Descripción</h3>
-                        <p><?php echo $descripcionApiEnCurso?></p>
-                        <h3>Categoría</h3>
-                        <p><?php echo $categoriaApiEnCurso?></p>
-                        <h3>Link</h3>
-                        <a href="<?php echo $linkApiEnCurso?>" target="_blank"><?php echo $linkApiEnCurso?></a>
-                    <?php }else{ ?>
-                        <h3>No se ha encontrado ninguna API</h3>
-                    <?php }
-                }?>
+            <div class="servicio-rest publicApi" id="publicApi">
             </div>
         </div>
         
@@ -124,7 +111,7 @@
         
         <div class="webService">
             <div class="apiRequest">
-                <form name="calculadora" action="<?php $_SERVER['PHP_SELF']?>" method="post" onsubmit="return validarCalculadora()">
+                <form name="calculadora" id="calculadora" action="<?php $_SERVER['PHP_SELF']?>" method="post" onsubmit="return validarCalculadora()">
                     <fieldset>
                         <div>
                             <h2>Calculadora</h2>
@@ -164,16 +151,11 @@
                         <a href="#" target="_blank"></a>
                     </div>
                     
-                    <div class="servicio-rest publicApi">
-                        <?php if(isset($_REQUEST["operacion"])){
-                            if($resultado != null){ ?>
-                                <h3>Resultado: </h3>
-                                <p><?php echo $resultado?></p>
-                            <?php 
-                            }
-                        } ?>
-                    </div>
+                    
                 </form>
+            </div>
+            
+            <div class="servicio-rest servicioCalculadora" id="servicioCalculadora">
             </div>
         </div>   
         
