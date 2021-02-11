@@ -94,7 +94,7 @@
         
         <div class="webService">
             <div class="apiRequest">
-                <form name="buscarDepartamento" action="<?php $_SERVER['PHP_SELF']?>" method="post">
+                <form name="buscarDepartamento" id="buscarDepartamento" action="<?php $_SERVER['PHP_SELF']?>" method="post">
                     <fieldset>
                         <div>
                             <h2>Buscar departamentos por descripción</h2>
@@ -102,13 +102,11 @@
 
                         <div>
                             <label for="descDepartamento">Descripción del departamento</label>
-                            <input type="text" id="descDepartamento" name="descDepartamento" value="<?php if(isset($_REQUEST['descDepartamento'])){
+                            <input type="text" id="descDepartamento" name="descDepartamento" placeholder="Introduce el texto a buscar" value="<?php if(isset($_REQUEST['descDepartamento'])){
                                 echo $_REQUEST['descDepartamento'];
                             }else{
                                 echo '';
                             }?>">
-
-                            <input class="enviar" type="submit" name="enviarDescripcion" value="Enviar">
                         </div>
                     </fieldset>
 
@@ -119,25 +117,8 @@
                 </form>
             </div>
 
-            <div class="servicio-rest apiDepartamentos">
-                <?php 
-                if(isset($_REQUEST['descDepartamento'])){
-                    if($aRespuesta["Departamentos"] != null){ 
-                        foreach ($aRespuesta["Departamentos"] as $key => $departamento) {?>
-                            <div>
-                                <h2>Departamento <?php echo $key?></h2>
-                                <h3>Código</h3>
-                                <p><?php echo $departamento["codigo"]?></p>
-                                <h3>Descripción</h3>
-                                <p><?php echo $departamento["descripcion"]?></p>
-                                <h3>Volumen</h3>
-                                <p><?php echo $departamento["volumen"]?></p>
-                            </div>
-                        <?php }
-                    }else{?>
-                        <h3><?php echo $aRespuesta["Error"] ?></h3>
-                    <?php } 
-                } ?>
+            <div class="servicio-rest apiDepartamentos" id="apiDepartamentos">
+                
             </div>
         </div>
         

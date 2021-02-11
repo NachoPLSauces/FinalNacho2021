@@ -27,6 +27,7 @@ else{
 }
 
 header('Content-type: application/json'); //Indica que el contenido devuelto es de tipo JSON
+header('Access-Control-Allow-Origin: *'); //Permite acceder al fichero
 echo json_encode($aRespuesta); //Imprime el $aRespuesta en formato JSON
 
 ?>

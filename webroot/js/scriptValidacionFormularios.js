@@ -126,6 +126,33 @@ function validarCalculadora(){
 
 //JQuery
 $(document).ready(function(){
+    //Busca departamentos cada vez que el usuario pulsa una tecla
+    $("#descDepartamento").keyup(function(){
+        var descDepartamento = $("#descDepartamento").val(); //Descripción introducida por el usuario
+        
+        $.getJSON("http://192.168.1.155/FinalNacho2021/api/buscarDepartamentos.php?descripcion=", {descripcion: descDepartamento}, buscarDepartamentos); //Obtiene el JSON devuelto por la API
+        
+    });
+    function buscarDepartamentos(aRespuesta){
+        var aDepartamentos = aRespuesta["Departamentos"];
+        var mostrar = "";
+        
+        if(aDepartamentos != null){
+            for(var departamento = 0;departamento<aDepartamentos.length;departamento++){
+                mostrar += "<div><h2>Departamento " + departamento + "</h2>";
+                mostrar += "<h3>Código</h3><p>" + aDepartamentos[departamento]["codigo"] + "</p>";
+                mostrar += "<h3>Descripción</h3><p>" + aDepartamentos[departamento]["descripcion"] + "</p>";
+                mostrar += "<h3>Volumen</h3><p>" + aDepartamentos[departamento]["volumen"] + "</p></div>";
+            }
+        }else{
+            mostrar = "<h3>" + aRespuesta["Error"] + "</h3>";
+        }
+        
+        $("#apiDepartamentos").html(mostrar); //Muestra los departamentos encontrados
+    }
+    
+    //Calcula el resultado de la operación
+    
     $("#enviarVideo").click(function(){
         var titulo = $("#tituloVideo").val();
         
@@ -138,6 +165,8 @@ $(document).ready(function(){
         }, function(data){
             console.log(data.items);
         });
+        
+        
         
         return false;
     });
