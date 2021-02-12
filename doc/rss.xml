@@ -35,6 +35,13 @@
             <pubDate>Sun, 07 Feb 2021 19:44:00 +0100</pubDate>
         </item>
         
-        
+        <item>
+            <title>Validación de formularios y AYAX</title>
+            <link>http://daw202.ieslossauces.es/FinalNacho2021/index.php</link>
+            <guid isPermalink="true">http://daw202.ieslossauces.es/FinalNacho2021/index.php</guid>
+            <description>Se validan con JavaScript los campos del formulario de "Registro". Las APIs REST se visualizan utilizando AYAX con JQuery. </description>
+            <author>Nacho del Prado Losada</author>
+            <pubDate>Fri, 12 Feb 2021 08:46:00 +0100</pubDate>
+        </item>
     </channel>
 </rss>
