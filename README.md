@@ -35,4 +35,6 @@ Otras tecnologías utilizadas:
 
 **Nacho del Prado Losada** - [Mi web de DAW2](http://daw202.ieslossauces.es/)
 
-## Licencia 📄
+## Licencia 
+
+**MIT License**
