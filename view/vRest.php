@@ -1,8 +1,20 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="./webroot/js/scriptAyax.js"></script>
+<script src="./webroot/js/scriptValidacionFormularios.js"></script>
 <main>
     <div class="container">
         <header>
             <h2>Uso de web services REST</h2>
         </header>
+        
+        <div class="navegadorAPIs">
+            <ul>
+                <li><a href="#apod">APOD</a></li>
+                <li><a href="#apis">Public APIs</a></li>
+                <li><a href="#buscarDepartamento">Buscar departamentos</a></li>
+                <li><a href="#calculadora">Calculadora</a></li>                
+            </ul>
+        </div>
         
         <form class="flecha">
             <button type="submit" name="flechaVolver"><img src="./webroot/media/img/flecha.png" height="30px"></button>
@@ -10,20 +22,18 @@
         
         <div class="webService">
             <div class="apiRequest">
-                <form name="apod" action="<?php $_SERVER['PHP_SELF']?>" method="post">
+                <form name="apod" id="apod" action="<?php $_SERVER['PHP_SELF']?>" method="post">
                     <fieldset>
                         <div>
                             <h2>APOD Nasa</h2>
                         </div>
 
                         <div>
-                            <input type="date" name="fecha" value="<?php if(isset($_SERVER['fechaAPOD'])){
-                                echo $_SERVER['fechaAPOD'];
+                            <input type="date" name="fechaAPOD" id="fechaAPOD" max="<?php echo date('Y-m-d') ?>" value="<?php if(isset($_REQUEST['fechaAPOD'])){
+                                echo $_REQUEST['fechaAPOD'];
                             }else{
                                 echo date('Y-m-d');
                             } ?>">
-
-                            <input class="enviar" type="submit" name="enviarAPOD" value="Enviar">
                         </div>
                     </fieldset>
                     
@@ -34,32 +44,28 @@
                 </form>
             </div>
 
-            <div class="servicio-rest APOD">
-                <?php if($aServicioAPOD){ ?>
-                    <p><?php echo $tituloEnCurso?></p>
-                    <img src="<?php echo $imagenEnCurso?>">
-                    <p><?php echo $descripcionEnCurso?></p>
-                <?php } ?>
+            <div class="servicio-rest APOD" id="APOD">
+                
             </div>
         </div>
         
         <div class="webService">
             <div class="apiRequest">
-                <form name="apis" action="<?php $_SERVER['PHP_SELF']?>" method="post">
+                <form name="apis" id="apis" action="<?php $_SERVER['PHP_SELF']?>" method="post">
                     <fieldset>
                         <div>
                             <h2>Public APIs</h2>
                         </div>
 
                         <div>
-                            <label for="titulo">Título de la API</label>
-                            <input type="text" id="titulo" name="titulo" value="<?php 
-                                if(isset($_SERVER["tituloAPI"])){
-                                    echo $_SERVER["tituloAPI"];
+                            <label for="tituloAPI">Título de la API</label>
+                            <input type="text" id="tituloAPI" name="tituloAPI" placeholder="Introduce el texto a buscar" value="<?php 
+                                if(isset($_REQUEST["tituloAPI"])){
+                                    echo $_REQUEST["tituloAPI"];
                                 }
                             ?>">
 
-                            <input class="enviar" type="submit" name="enviarPublicApis" value="Enviar">
+                            <input class="enviar" type="submit" id="enviarPublicApis" name="enviarPublicApis" value="Enviar">
                         </div>
                     </fieldset>
                     
@@ -70,23 +76,13 @@
                 </form>
             </div>
 
-            <div class="servicio-rest publicApi">
-                <?php if($aServicioPublicApis){ ?>
-                    <h3>Nombre</h3>
-                    <p><?php echo $nombreApiEnCurso?></p>
-                    <h3>Descripción</h3>
-                    <p><?php echo $descripcionApiEnCurso?></p>
-                    <h3>Categoría</h3>
-                    <p><?php echo $categoriaApiEnCurso?></p>
-                    <h3>Link</h3>
-                    <a href="<?php echo $linkApiEnCurso?>" target="_blank"><?php echo $linkApiEnCurso?></a>
-                <?php } ?>
+            <div class="servicio-rest publicApi" id="publicApi">
             </div>
         </div>
         
         <div class="webService">
             <div class="apiRequest">
-                <form name="buscarDepartamento" action="<?php $_SERVER['PHP_SELF']?>" method="post">
+                <form name="buscarDepartamento" id="buscarDepartamento" action="<?php $_SERVER['PHP_SELF']?>" method="post">
                     <fieldset>
                         <div>
                             <h2>Buscar departamentos por descripción</h2>
@@ -94,13 +90,11 @@
 
                         <div>
                             <label for="descDepartamento">Descripción del departamento</label>
-                            <input type="text" id="descDepartamento" name="descDepartamento" value="<?php if(isset($_REQUEST['descDepartamento'])){
+                            <input type="text" id="descDepartamento" name="descDepartamento" placeholder="Introduce el texto a buscar" value="<?php if(isset($_REQUEST['descDepartamento'])){
                                 echo $_REQUEST['descDepartamento'];
                             }else{
                                 echo '';
                             }?>">
-
-                            <input class="enviar" type="submit" name="enviarDescripcion" value="Enviar">
                         </div>
                     </fieldset>
 
@@ -111,31 +105,14 @@
                 </form>
             </div>
 
-            <div class="servicio-rest apiDepartamentos">
-                <?php 
-                if(isset($_REQUEST['descDepartamento'])){
-                    if($aRespuesta["Departamentos"] != null){ 
-                        foreach ($aRespuesta["Departamentos"] as $key => $departamento) {?>
-                            <div>
-                                <h2>Departamento <?php echo $key?></h2>
-                                <h3>Código</h3>
-                                <p><?php echo $departamento["codigo"]?></p>
-                                <h3>Descripción</h3>
-                                <p><?php echo $departamento["descripcion"]?></p>
-                                <h3>Volumen</h3>
-                                <p><?php echo $departamento["volumen"]?></p>
-                            </div>
-                        <?php }
-                    }else{?>
-                        <p><?php $aRespuesta["Error"] ?></p>
-                    <?php } 
-                } ?>
+            <div class="servicio-rest apiDepartamentos" id="apiDepartamentos">
+                
             </div>
         </div>
         
         <div class="webService">
             <div class="apiRequest">
-                <form name="calculadora" action="<?php $_SERVER['PHP_SELF']?>" method="post">
+                <form name="calculadora" id="calculadora" action="<?php $_SERVER['PHP_SELF']?>" method="post" onsubmit="return validarCalculadora()">
                     <fieldset>
                         <div>
                             <h2>Calculadora</h2>
@@ -150,14 +127,16 @@
                                 <option value="4" <?php if(isset($_REQUEST["operacion"])){ if($_REQUEST["operacion"]==4){ echo 'selected';}} ?>>División</option>
                             </select><br><br>
                             
-                            <label for="num1">Primer número</label>
+                            <label for="num1">Primer número</label><br>
+                            <span id="errorNum1"></span>
                             <input type="text" id="num1" name="num1" value="<?php 
                                 if(isset($_REQUEST["num1"])){
                                     echo $_REQUEST["num1"];
                                 }
                             ?>">
                             
-                            <label for="num2">Segundo número</label>
+                            <label for="num2">Segundo número</label><br>
+                            <span id="errorNum2"></span>
                             <input type="text" id="num2" name="num2" value="<?php 
                                 if(isset($_REQUEST["num2"])){
                                     echo $_REQUEST["num2"];
@@ -168,23 +147,18 @@
                         </div>
                     </fieldset>
                     
-                    <div class="servicio-rest publicApi">
-                        <?php if(isset($_REQUEST["operacion"])){
-                        if($resultado != null){ ?>
-                            <h3>Resultado: </h3>
-                            <p><?php echo $resultado?></p>
-                        <?php 
-                        }
-                        } ?>
-                    </div>
-                    
                     <div class="apiInfo">
                         <h4> </h4>
                         <a href="#" target="_blank"></a>
                     </div>
+                    
+                    
                 </form>
             </div>
             
+            <div class="servicio-rest servicioCalculadora" id="servicioCalculadora">
+            </div>
+        </div>   
             
     </div>
     

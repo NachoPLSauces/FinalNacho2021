@@ -9,7 +9,7 @@ body{
     position: relative;
     height: 100vh;
 }
-header{
+header{    
     display: table;
     width: 100%;
     background-color: cadetblue;
@@ -325,11 +325,34 @@ button{
     box-shadow: 0 0 30px 0 rgba(0,0,0,.20);
 }
 .container header{
+    min-height: 2rem;
     display: flex;
     align-items: center;
     justify-content: center;
     
     color: white;
+}
+
+.navegadorAPIs{
+    width: 100%;height: auto;
+    padding: 20px;
+    border-bottom: 5px solid cadetblue;
+}
+.navegadorAPIs ul{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+.navegadorAPIs li{
+    margin-right: 20px;
+}
+.navegadorAPIs a:hover{
+    border-bottom: 2px solid blue;
+}
+.navegadorAPIs li a{
+    text-decoration: none;
+    font-weight: bold;
 }
 .webService{
     height: 450px;
@@ -348,10 +371,10 @@ button{
     padding-top: 50px;
 }
 .servicio-rest{
-    padding: 20px;
+    margin: 1% 0;
     margin-left: auto;
     width: 50%;
-    height: 100%;
+    height: 95%;
     float: left;
     overflow: auto;
 }
@@ -368,6 +391,19 @@ button{
     margin: 20px;
 }
 
+.publicApi h2{
+    position: sticky;
+    top: 0;
+    background: white;
+    font-size: 1.5rem;
+    margin-bottom: 3px;
+}
+.publicApi div{
+    height: auto;width: auto;
+    padding: 10px;
+    border-bottom: 1px solid grey;
+}
+
 .apiDepartamentos div{
     height: auto;width: auto;
     padding: 10px;
@@ -380,6 +416,9 @@ button{
 }
 .apiDepartamentos h3{
     font-size: 1rem;
+}
+.servicioCalculadora{
+    
 }
 .apiInfo{
     margin: auto;

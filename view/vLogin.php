@@ -1,4 +1,4 @@
-<script src="./webroot/media/js/scriptPaginacion.js"></script>
+<script type="text/javascript" src="./webroot/js/scriptPaginacion.js"></script>
 <main>
     <div class="title">
         <div class="logo">

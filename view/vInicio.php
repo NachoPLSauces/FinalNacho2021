@@ -1,3 +1,5 @@
+<script type="text/javascript" src="./webroot/js/scriptValidacionFormularios.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <main>
     <form name="inicio" action="<?php $_SERVER['PHP_SELF']?>" method="post">
         <fieldset>
@@ -26,7 +28,7 @@
                 <input class="enviar" type="submit" name="salir" value="Salir"/>
             </div>
         </fieldset>
-        
+
         <div class="crearCuenta">
             <p></p>
             <input class="enviar" type='submit' name='rest' value='REST' />

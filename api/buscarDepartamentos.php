@@ -23,10 +23,11 @@ if($aDepartamentos != null){
     $aRespuesta["Departamentos"] = $aDepartamentos; //Se guardan los departamentos en el array de respuesta
 }
 else{
-    $aRespuesta["Error"] = "No se ha encontrado departamentos"; //Si no hay departamentos, se guarda un error
+    $aRespuesta["Error"] = "No se han encontrado departamentos"; //Si no hay departamentos, se guarda un error
 }
 
 header('Content-type: application/json'); //Indica que el contenido devuelto es de tipo JSON
+header('Access-Control-Allow-Origin: *'); //Permite acceder al fichero
 echo json_encode($aRespuesta); //Imprime el $aRespuesta en formato JSON
 
 ?>
