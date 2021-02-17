@@ -10,8 +10,6 @@
     require_once 'core/libreriaValidacion.php';
     
     //Se incluye la lógica del modelo
-    require_once 'model/iDB.php';
-    require_once 'model/iUsuarioDB.php';
     require_once 'model/dbPDO.php';
     require_once 'model/usuario.php';
     require_once 'model/usuarioPDO.php';
@@ -24,7 +22,8 @@
                     "borrar" => "controller/cBorrarCuenta.php",
                     "editar" => "controller/cMiCuenta.php",
                     "rest" => "controller/cRest.php",
-                    "registro" => "controller/cRegistro.php"];
+                    "registro" => "controller/cRegistro.php",
+                    "departamentos" => "controller/cMantenimientoDeDepartamentos.php"];
     
     //Creamos un array que contiene las rutas de los archivos de la vista
     $vistas=["login" => "view/vLogin.php",
@@ -33,5 +32,6 @@
             "editar" => "view/vMiCuenta.php",
             "rest" => "view/vRest.php",
             "registro" => "view/vRegistro.php",
-            "layout" => "view/layout.php"];
+            "layout" => "view/layout.php",
+            "departamentos" => "view/vMantenimientoDeDepartamentos.php"];
 ?>

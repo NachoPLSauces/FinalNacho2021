@@ -86,6 +86,29 @@ h2 a {
     margin: 0;
 }
 
+/* Navegación inicio */
+.contenedorInicio{
+    height: 100%;max-height: 100%;
+    width: 370px;max-width: 100%;
+    padding: 20px 0;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.iconoNavegacion{
+    width: 150px;height: 150px;
+    border: 1px solid grey;
+    border-radius: 3px;
+}
+.iconoNavegacion button{
+    width: 100%;height: 100%;
+    position: static;
+}
+.iconoNavegacion button img{
+    height: 100%;
+}
 /* Mapa de navegación */
 .contenedorNav{
     border: 1px solid grey;
