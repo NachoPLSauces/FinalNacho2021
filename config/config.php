@@ -23,7 +23,7 @@
                     "editar" => "controller/cMiCuenta.php",
                     "rest" => "controller/cRest.php",
                     "registro" => "controller/cRegistro.php",
-                    "departamentos" => "controller/cMantenimientoDeDepartamentos.php"];
+                    "departamentos" => "controller/cMantenimientoDepartamentos.php"];
     
     //Creamos un array que contiene las rutas de los archivos de la vista
     $vistas=["login" => "view/vLogin.php",
@@ -33,5 +33,6 @@
             "rest" => "view/vRest.php",
             "registro" => "view/vRegistro.php",
             "layout" => "view/layout.php",
-            "departamentos" => "view/vMantenimientoDeDepartamentos.php"];
+            "layoutMto" => "view/layoutMantenimiento.php",
+            "departamentos" => "view/vMantenimientoDepartamentos.php"];
 ?>

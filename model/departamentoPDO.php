@@ -30,6 +30,7 @@
             while ($departamento != null){
                 $aDepartamento[] = ["codigo" => $departamento->CodDepartamento,
                                     "descripcion" => $departamento->DescDepartamento,
+                                    "fechaBaja" => $departamento->FechaBaja,
                                     "volumen" => $departamento->VolumenNegocio];
 
                 $departamento = $resultado->fetchObject();

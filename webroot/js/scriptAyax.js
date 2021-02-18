@@ -4,7 +4,7 @@ $(document).ready(function(){
     $("#descDepartamento").keyup(function(){
         var descDepartamento = $("#descDepartamento").val(); //Descripción introducida por el usuario
         
-        $.getJSON("https://daw202.ieslossauces.es/FinalNacho2021/api/buscarDepartamentos.php?", {descripcion: descDepartamento}, buscarDepartamentos); //Obtiene el JSON devuelto por la API
+        $.getJSON(("https://daw202.ieslossauces.es/FinalNacho2021/api/buscarDepartamentos.php?"), {descripcion: descDepartamento}, buscarDepartamentos); //Obtiene el JSON devuelto por la API
         
     });
     function buscarDepartamentos(aRespuesta){

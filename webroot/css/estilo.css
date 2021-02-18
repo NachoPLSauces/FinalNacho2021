@@ -10,11 +10,12 @@ body{
     height: 100vh;
 }
 header{    
-    display: table;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     background-color: cadetblue;
-    height: 10vh;    text-align: center;
-    vertical-align: middle;
+    height: 10vh; min-height: 70px;
 }
 header h1{
     display: block;
@@ -336,7 +337,7 @@ button{
 }
 .flecha{
     position: sticky;
-    margin-left: 8px;
+    margin-left: 0px;
     margin-top: 15px;
     top: 15px;
 }

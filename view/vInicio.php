@@ -8,7 +8,7 @@
                     <button type="submit" name='rest'><img src="./webroot/media/img/apiRest.png" alt="REST"></button>
                 </div>
                 <div class="iconoNavegacion">
-                    <button type="submit" name='rest'><img src="./webroot/media/img/departamentos.png" alt="REST"></button>
+                    <button type="submit" name='departamentos'><img src="./webroot/media/img/departamentos.png" alt="departamentos"></button>
                 </div>
             </form>
         </div>
@@ -42,11 +42,6 @@
                     <input class="enviar" type="submit" name="salir" value="Salir"/>
                 </div>
             </fieldset>
-
-            <div class="crearCuenta">
-                <p></p>
-                <input class="enviar" type='submit' name='rest' value='REST' />
-            </div>
         </form>
     </div>
 </main>
