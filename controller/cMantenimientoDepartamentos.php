@@ -3,21 +3,21 @@ $aDepartamentosEncontrados = departamentoPDO::buscarDepartamentoPorDescripcion("
 $mostrarDepartamentosEncontrados = "";
 
 foreach ($aDepartamentosEncontrados as $key => $departamento) {
-    $mostrarDepartamentosEncontrados .= "<div class='filaDep'><td "; //Código del departamento
+    $mostrarDepartamentosEncontrados .= "<div class='filaDep'><p "; //Código del departamento
     if($departamento["fechaBaja"]){ $mostrarDepartamentosEncontrados .= 'style="color: red !important"';}  
-    $mostrarDepartamentosEncontrados .= ">".$departamento["codigo"]."</td>";
-    $mostrarDepartamentosEncontrados .= "<td "; //Descripción del departamento
+    $mostrarDepartamentosEncontrados .= ">".$departamento["codigo"]."</p>";
+    $mostrarDepartamentosEncontrados .= "<p "; //Descripción del departamento
     if($departamento["fechaBaja"]){ $mostrarDepartamentosEncontrados .= 'style="color: red !important"';}  
-    $mostrarDepartamentosEncontrados .= ">".$departamento["descripcion"]."</td>";
+    $mostrarDepartamentosEncontrados .= ">".$departamento["descripcion"]."</p>";
     if($departamento["fechaBaja"]){ //Fecha de baja
-        $mostrarDepartamentosEncontrados .= '<td style="color: red !important">'.$departamento["fechaBaja"]."</td>";
+        $mostrarDepartamentosEncontrados .= '<p style="color: red !important">'.$departamento["fechaBaja"]."</p>";
     } else {
-        $mostrarDepartamentosEncontrados .= '<td style="color: red !important">null</td>';
+        $mostrarDepartamentosEncontrados .= '<p style="color: red !important">null</p>';
     }
-    $mostrarDepartamentosEncontrados .= "<td "; //Volumen de negocio
+    $mostrarDepartamentosEncontrados .= "<p "; //Volumen de negocio
     if($departamento["fechaBaja"]){ $mostrarDepartamentosEncontrados .= 'style="color: red !important"';}  
-    $mostrarDepartamentosEncontrados .= ">".$departamento["volumen"]."</td>";
-    $mostrarDepartamentosEncontrados .= "<td><a href='#'><img src='webroot/media/img/editar.png'></a><a href='#'><img src='webroot/media/img/mostrar.png'></a><a href='#'><img src='webroot/media/img/papelera.png'></a></td></div>";
+    $mostrarDepartamentosEncontrados .= ">".$departamento["volumen"]."</p>";
+    $mostrarDepartamentosEncontrados .= "<p><a href='#'><img src='webroot/media/img/editar.png'></a><a href='#'><img src='webroot/media/img/mostrar.png'></a><a href='#'><img src='webroot/media/img/papelera.png'></a></p></div>";
 
 }
 
