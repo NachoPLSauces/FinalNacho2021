@@ -1,24 +1,66 @@
 <?php
-$aDepartamentosEncontrados = departamentoPDO::buscarDepartamentoPorDescripcion(""); //Muestra los departamentos al cargar la página
+/**
+ * Mantenimiento de departamentos
+ * 
+ * Controla la ventana de la vista de mantenimiento de departamentos
+ * 
+ * @author Nacho del Prado Losada
+ * @since 22/02/2021
+ * @version 22/02/2021
+ */
+//Si el usuario no ha iniciado sesión se le dirije al Login
+if(!isset($_SESSION["usuarioDAW202LoginLogoffMulticapa"])){
+    header('Location: ./index.php'); 
+    exit;
+}
+
+//Si el usuario pulsa volver le dirijo al inicio
+if(isset($_REQUEST['volver'])){
+    $_SESSION['paginaEnCurso'] = $controladores['inicio'];
+    header("Location: index.php");
+    exit;
+}
+
+$aErrores = ["DescDepartamento" => null]; //Array de errores inicializado a null
+$entradaOK = true; //Varible de entrada correcta inicializada a true          
+$aRespuestas = ["DescDepartamento" => null]; //Array de respuestas inicializado a null
+
+//Si el usuario pulsa "Buscar"
+if(isset($_REQUEST['buscar'])){
+    $aErrores["DescDepartamento"] = validacionFormularios::comprobarAlfaNumerico($_REQUEST['DescDepartamento'], 255, 1, 0); //Comprobar que el campo campoDescDepartamento se ha rellenado con un alfanumérico
+
+    foreach ($aErrores as $clave => $valor) { //Comprobar si algún campo del array de errores ha sido rellenado
+        //Comprobar si el campo ha sido rellenado
+        if($valor!=null){
+            $_REQUEST[$clave] = "";
+            $entradaOK = false;
+        }
+    }
+}
+else{
+    $entradaOK = false;
+}
+
+$oDepartamento = departamentoPDO::buscarDepartamentoPorDescripcion($_REQUEST['DescDepartamento']); //Se buscan departamentos por la descripción
 $mostrarDepartamentosEncontrados = "";
 
-foreach ($aDepartamentosEncontrados as $key => $departamento) {
-    $mostrarDepartamentosEncontrados .= "<div class='filaDep'><p "; //Código del departamento
-    if($departamento["fechaBaja"]){ $mostrarDepartamentosEncontrados .= 'style="color: red !important"';}  
-    $mostrarDepartamentosEncontrados .= ">".$departamento["codigo"]."</p>";
-    $mostrarDepartamentosEncontrados .= "<p "; //Descripción del departamento
-    if($departamento["fechaBaja"]){ $mostrarDepartamentosEncontrados .= 'style="color: red !important"';}  
-    $mostrarDepartamentosEncontrados .= ">".$departamento["descripcion"]."</p>";
-    if($departamento["fechaBaja"]){ //Fecha de baja
-        $mostrarDepartamentosEncontrados .= '<p style="color: red !important">'.$departamento["fechaBaja"]."</p>";
-    } else {
-        $mostrarDepartamentosEncontrados .= '<p style="color: red !important">null</p>';
+if($oDepartamento == null){
+    $mostrarDepartamentosEncontrados = '<p class="sinDepartamentos">No se han encontrado departamentos</p>';
+}else{
+    foreach ($oDepartamento as $key => $departamento) {
+        if($departamento["fechaBaja"]){
+            $mostrarDepartamentosEncontrados .= "<div class='filaDep'><p style='color: red !important'>".$departamento["codigo"]."</p>";
+            $mostrarDepartamentosEncontrados .= "<p style='color: red !important'>".$departamento["descripcion"]."</p>";
+            $mostrarDepartamentosEncontrados .= "<p style='color: red !important'>".$departamento["fechaBaja"]."</p>";
+            $mostrarDepartamentosEncontrados .= "<p style='color: red !important'>".$departamento["volumen"]."</p>";
+        }else{
+            $mostrarDepartamentosEncontrados .= "<div class='filaDep'><p>".$departamento["codigo"]."</p>";
+            $mostrarDepartamentosEncontrados .= "<p>".$departamento["descripcion"]."</p>";
+            $mostrarDepartamentosEncontrados .= "<p>null</p>";
+            $mostrarDepartamentosEncontrados .= "<p>".$departamento["volumen"]."</p>";
+        }
+        $mostrarDepartamentosEncontrados .= "<p><a href='#'><img src='webroot/media/img/editar.png'></a><a href='#'><img src='webroot/media/img/mostrar.png'></a><a href='#'><img src='webroot/media/img/papelera.png'></a></p></div>";
     }
-    $mostrarDepartamentosEncontrados .= "<p "; //Volumen de negocio
-    if($departamento["fechaBaja"]){ $mostrarDepartamentosEncontrados .= 'style="color: red !important"';}  
-    $mostrarDepartamentosEncontrados .= ">".$departamento["volumen"]."</p>";
-    $mostrarDepartamentosEncontrados .= "<p><a href='#'><img src='webroot/media/img/editar.png'></a><a href='#'><img src='webroot/media/img/mostrar.png'></a><a href='#'><img src='webroot/media/img/papelera.png'></a></p></div>";
-
 }
 
 //Incluimos la lógica de la vista

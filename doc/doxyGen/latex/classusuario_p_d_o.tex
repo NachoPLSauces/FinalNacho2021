@@ -1,0 +1,140 @@
+\hypertarget{classusuario_p_d_o}{}\doxysection{usuario\+PDO Class Reference}
+\label{classusuario_p_d_o}\index{usuarioPDO@{usuarioPDO}}
+
+
+Inherits \mbox{\hyperlink{interface_usuario_d_b}{Usuario\+DB}}.
+
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classusuario_p_d_o_ae85b032587e9e5fa8844d0431f32578e}{validar\+Usuario}} (\$cod\+Usuario, \$password)
+\item 
+static \mbox{\hyperlink{classusuario_p_d_o_a7a5176f4bfba2cf39eca0462195676b8}{alta\+Usuario}} (\$cod\+Usuario, \$password, \$desc\+Usuario)
+\item 
+static \mbox{\hyperlink{classusuario_p_d_o_a52fa586fecf82d3f4df7ff5dac39afc8}{validar\+Cod\+No\+Existe}} (\$cod\+Usuario)
+\item 
+static \mbox{\hyperlink{classusuario_p_d_o_ac08be54eb31f194fb1bdd1457a2c008e}{borrar\+Usuario}} (\$cod\+Usuario)
+\item 
+static \mbox{\hyperlink{classusuario_p_d_o_af10eb56472a42ff08d2cfa77f45ea899}{modificar\+Usuario}} (\$desc\+Usuario, \$cod\+Usuario)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Clase \mbox{\hyperlink{classusuario_p_d_o}{usuario\+PDO}}
+
+Contiene métodos que permiten realizar distintas consultas sql
+
+\begin{DoxyAuthor}{Author}
+Nacho del Prado Losada 
+\end{DoxyAuthor}
+\begin{DoxySince}{Since}
+27/01/2021 
+\end{DoxySince}
+\begin{DoxyVersion}{Version}
+27/01/2021 
+\end{DoxyVersion}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classusuario_p_d_o_a7a5176f4bfba2cf39eca0462195676b8}\label{classusuario_p_d_o_a7a5176f4bfba2cf39eca0462195676b8}} 
+\index{usuarioPDO@{usuarioPDO}!altaUsuario@{altaUsuario}}
+\index{altaUsuario@{altaUsuario}!usuarioPDO@{usuarioPDO}}
+\doxysubsubsection{\texorpdfstring{altaUsuario()}{altaUsuario()}}
+{\footnotesize\ttfamily static alta\+Usuario (\begin{DoxyParamCaption}\item[{}]{\$cod\+Usuario,  }\item[{}]{\$password,  }\item[{}]{\$desc\+Usuario }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Función alta\+Usuario
+
+Permite dar de alta a un usuario
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$cod\+Usuario} & Código del usuario \\
+\hline
+string & {\em \$password} & Contraseña del usuario \\
+\hline
+string & {\em \$desc\+Usuario} & Descripción del usuario \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\textbackslash{}usuario 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classusuario_p_d_o_ac08be54eb31f194fb1bdd1457a2c008e}\label{classusuario_p_d_o_ac08be54eb31f194fb1bdd1457a2c008e}} 
+\index{usuarioPDO@{usuarioPDO}!borrarUsuario@{borrarUsuario}}
+\index{borrarUsuario@{borrarUsuario}!usuarioPDO@{usuarioPDO}}
+\doxysubsubsection{\texorpdfstring{borrarUsuario()}{borrarUsuario()}}
+{\footnotesize\ttfamily static borrar\+Usuario (\begin{DoxyParamCaption}\item[{}]{\$cod\+Usuario }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Función borrar\+Usuario
+
+Permite borrar un usuario 
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$cod\+Usuario} & Código del usuario \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classusuario_p_d_o_af10eb56472a42ff08d2cfa77f45ea899}\label{classusuario_p_d_o_af10eb56472a42ff08d2cfa77f45ea899}} 
+\index{usuarioPDO@{usuarioPDO}!modificarUsuario@{modificarUsuario}}
+\index{modificarUsuario@{modificarUsuario}!usuarioPDO@{usuarioPDO}}
+\doxysubsubsection{\texorpdfstring{modificarUsuario()}{modificarUsuario()}}
+{\footnotesize\ttfamily static modificar\+Usuario (\begin{DoxyParamCaption}\item[{}]{\$desc\+Usuario,  }\item[{}]{\$cod\+Usuario }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Función modificar usuario
+
+Permite modificar los campos de un usuario
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$desc\+Usuario} & Descripción del usuario \\
+\hline
+string & {\em \$cod\+Usuario} & Código del usuario \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\textbackslash{}usuario Devuelve un objeto usuario 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classusuario_p_d_o_a52fa586fecf82d3f4df7ff5dac39afc8}\label{classusuario_p_d_o_a52fa586fecf82d3f4df7ff5dac39afc8}} 
+\index{usuarioPDO@{usuarioPDO}!validarCodNoExiste@{validarCodNoExiste}}
+\index{validarCodNoExiste@{validarCodNoExiste}!usuarioPDO@{usuarioPDO}}
+\doxysubsubsection{\texorpdfstring{validarCodNoExiste()}{validarCodNoExiste()}}
+{\footnotesize\ttfamily static validar\+Cod\+No\+Existe (\begin{DoxyParamCaption}\item[{}]{\$cod\+Usuario }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Función validar\+Cod\+No\+Existe
+
+Comprueba si el código introducido ya existe
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$cod\+Usuario} & Código del usuario que se va a comprobar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string Devuelve un error si el código ya existe, null si está disponible 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classusuario_p_d_o_ae85b032587e9e5fa8844d0431f32578e}\label{classusuario_p_d_o_ae85b032587e9e5fa8844d0431f32578e}} 
+\index{usuarioPDO@{usuarioPDO}!validarUsuario@{validarUsuario}}
+\index{validarUsuario@{validarUsuario}!usuarioPDO@{usuarioPDO}}
+\doxysubsubsection{\texorpdfstring{validarUsuario()}{validarUsuario()}}
+{\footnotesize\ttfamily static validar\+Usuario (\begin{DoxyParamCaption}\item[{}]{\$cod\+Usuario,  }\item[{}]{\$password }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Función validar\+Usuario
+
+Permite validar el Login de un usuario
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$cod\+Usuario} & Código del usuario \\
+\hline
+string & {\em \$password} & Contraseña del usuario \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\textbackslash{}usuario 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{interface_usuario_d_b_ae85b032587e9e5fa8844d0431f32578e}{Usuario\+DB}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+model/usuario\+PDO.\+php\end{DoxyCompactItemize}

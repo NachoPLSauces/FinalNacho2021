@@ -1,0 +1,69 @@
+\hypertarget{c_inicio_8php}{}\doxysection{controller/c\+Inicio.php File Reference}
+\label{c_inicio_8php}\index{controller/cInicio.php@{controller/cInicio.php}}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{v_mi_cuenta_8php_aa6ab3aa11ecfc8002af92f81c80e490c}{if}}(!isset(\$\+\_\+\+SESSION\mbox{[}\char`\"{}usuario\+DAW202\+Login\+Logoff\+Multicapa\char`\"{}\mbox{]})) if(isset(\$\+\_\+\+REQUEST\mbox{[}\textquotesingle{}salir\textquotesingle{}\mbox{]})) \mbox{\hyperlink{v_mi_cuenta_8php_aa6ab3aa11ecfc8002af92f81c80e490c}{if}}(isset(\$\+\_\+\+REQUEST\mbox{[}\textquotesingle{}editar\textquotesingle{}\mbox{]})) \mbox{\hyperlink{v_mi_cuenta_8php_aa6ab3aa11ecfc8002af92f81c80e490c}{if}}(isset(\$\+\_\+\+REQUEST\mbox{[}\textquotesingle{}borrar\textquotesingle{}\mbox{]})) \mbox{\hyperlink{v_mi_cuenta_8php_aa6ab3aa11ecfc8002af92f81c80e490c}{if}}(isset(\$\+\_\+\+REQUEST\mbox{[}\textquotesingle{}rest\textquotesingle{}\mbox{]})) \mbox{\hyperlink{v_mi_cuenta_8php_aa6ab3aa11ecfc8002af92f81c80e490c}{if}}(isset(\$\+\_\+\+REQUEST\mbox{[}\textquotesingle{}departamentos\textquotesingle{}\mbox{]})) \mbox{\hyperlink{c_inicio_8php_ac5c2b0c5f86c7e3d099d80e2442cf1a3}{\$descripcion\+Usuario}} = \$\+\_\+\+SESSION\mbox{[}\char`\"{}usuario\+DAW202\+Login\+Logoff\+Multicapa\char`\"{}\mbox{]}-\/$>$get\+Desc\+Usuario()
+\item 
+\mbox{\hyperlink{c_inicio_8php_a46739459d70422aaa3c3d151111fed4c}{\$num\+Conexiones}} = \$\+\_\+\+SESSION\mbox{[}\char`\"{}usuario\+DAW202\+Login\+Logoff\+Multicapa\char`\"{}\mbox{]}-\/$>$get\+Num\+Conexiones()
+\item 
+\mbox{\hyperlink{c_inicio_8php_ae61055ebdf8e453d4bc630a70ea496e7}{\$ultima\+Conexion}} = \$\+\_\+\+SESSION\mbox{[}\textquotesingle{}usuario\+DAW202\+Login\+Logoff\+Multicapa\textquotesingle{}\mbox{]}-\/$>$get\+Fecha\+Hora\+Ultima\+Conexion()
+\item 
+\mbox{\hyperlink{c_inicio_8php_ae4f88d2d066e7b4fccd3f28e72dc459d}{\$vista}} = \$vistas\mbox{[}\textquotesingle{}inicio\textquotesingle{}\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{c_inicio_8php_ac5c2b0c5f86c7e3d099d80e2442cf1a3}\label{c_inicio_8php_ac5c2b0c5f86c7e3d099d80e2442cf1a3}} 
+\index{cInicio.php@{cInicio.php}!\$descripcionUsuario@{\$descripcionUsuario}}
+\index{\$descripcionUsuario@{\$descripcionUsuario}!cInicio.php@{cInicio.php}}
+\doxysubsubsection{\texorpdfstring{\$descripcionUsuario}{$descripcionUsuario}}
+{\footnotesize\ttfamily \mbox{\hyperlink{v_mi_cuenta_8php_aa6ab3aa11ecfc8002af92f81c80e490c}{if}} (!isset( \$\+\_\+\+SESSION\mbox{[}\char`\"{}usuario\+DAW202\+Login\+Logoff\+Multicapa\char`\"{}\mbox{]})) if (isset( \$\+\_\+\+REQUEST\mbox{[} \textquotesingle{}salir\textquotesingle{}\mbox{]})) \mbox{\hyperlink{v_mi_cuenta_8php_aa6ab3aa11ecfc8002af92f81c80e490c}{if}} (isset( \$\+\_\+\+REQUEST\mbox{[} \textquotesingle{}editar\textquotesingle{}\mbox{]})) \mbox{\hyperlink{v_mi_cuenta_8php_aa6ab3aa11ecfc8002af92f81c80e490c}{if}} (isset( \$\+\_\+\+REQUEST\mbox{[} \textquotesingle{}borrar\textquotesingle{}\mbox{]})) \mbox{\hyperlink{v_mi_cuenta_8php_aa6ab3aa11ecfc8002af92f81c80e490c}{if}} (isset( \$\+\_\+\+REQUEST\mbox{[} \textquotesingle{}rest\textquotesingle{}\mbox{]})) \mbox{\hyperlink{v_mi_cuenta_8php_aa6ab3aa11ecfc8002af92f81c80e490c}{if}} (isset( \$\+\_\+\+REQUEST\mbox{[} \textquotesingle{}departamentos\textquotesingle{}\mbox{]})) \$descripcion\+Usuario = \$\+\_\+\+SESSION\mbox{[}\char`\"{}usuario\+DAW202\+Login\+Logoff\+Multicapa\char`\"{}\mbox{]}-\/$>$get\+Desc\+Usuario()}
+
+Inicio sesión
+
+Permite que un usuario que a iniciado sesión navegue por la página Muestra el número de conexiones realizadas y la fecha de la última conexión
+
+\begin{DoxyAuthor}{Author}
+Nacho del Prado Losada 
+\end{DoxyAuthor}
+\begin{DoxySince}{Since}
+27/01/2021 
+\end{DoxySince}
+\begin{DoxyVersion}{Version}
+27/01/2021 
+\end{DoxyVersion}
+
+
+Definition at line 55 of file c\+Inicio.\+php.
+
+\mbox{\Hypertarget{c_inicio_8php_a46739459d70422aaa3c3d151111fed4c}\label{c_inicio_8php_a46739459d70422aaa3c3d151111fed4c}} 
+\index{cInicio.php@{cInicio.php}!\$numConexiones@{\$numConexiones}}
+\index{\$numConexiones@{\$numConexiones}!cInicio.php@{cInicio.php}}
+\doxysubsubsection{\texorpdfstring{\$numConexiones}{$numConexiones}}
+{\footnotesize\ttfamily \$num\+Conexiones = \$\+\_\+\+SESSION\mbox{[}\char`\"{}usuario\+DAW202\+Login\+Logoff\+Multicapa\char`\"{}\mbox{]}-\/$>$get\+Num\+Conexiones()}
+
+
+
+Definition at line 56 of file c\+Inicio.\+php.
+
+\mbox{\Hypertarget{c_inicio_8php_ae61055ebdf8e453d4bc630a70ea496e7}\label{c_inicio_8php_ae61055ebdf8e453d4bc630a70ea496e7}} 
+\index{cInicio.php@{cInicio.php}!\$ultimaConexion@{\$ultimaConexion}}
+\index{\$ultimaConexion@{\$ultimaConexion}!cInicio.php@{cInicio.php}}
+\doxysubsubsection{\texorpdfstring{\$ultimaConexion}{$ultimaConexion}}
+{\footnotesize\ttfamily \$ultima\+Conexion = \$\+\_\+\+SESSION\mbox{[}\textquotesingle{}usuario\+DAW202\+Login\+Logoff\+Multicapa\textquotesingle{}\mbox{]}-\/$>$get\+Fecha\+Hora\+Ultima\+Conexion()}
+
+
+
+Definition at line 57 of file c\+Inicio.\+php.
+
+\mbox{\Hypertarget{c_inicio_8php_ae4f88d2d066e7b4fccd3f28e72dc459d}\label{c_inicio_8php_ae4f88d2d066e7b4fccd3f28e72dc459d}} 
+\index{cInicio.php@{cInicio.php}!\$vista@{\$vista}}
+\index{\$vista@{\$vista}!cInicio.php@{cInicio.php}}
+\doxysubsubsection{\texorpdfstring{\$vista}{$vista}}
+{\footnotesize\ttfamily \$vista = \$vistas\mbox{[}\textquotesingle{}inicio\textquotesingle{}\mbox{]}}
+
+
+
+Definition at line 60 of file c\+Inicio.\+php.
+

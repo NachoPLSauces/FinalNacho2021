@@ -4,8 +4,6 @@
         <meta charset="UTF-8">
         <meta name="author" content="Nacho del Prado Losada">
         <link rel="stylesheet" href="webroot/css/estiloMto.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-        <script type="text/javascript" src="./webroot/js/scriptMto.js"></script>
     </head>
     <body>
         <header>

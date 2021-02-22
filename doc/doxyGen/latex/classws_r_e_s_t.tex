@@ -1,0 +1,105 @@
+\hypertarget{classws_r_e_s_t}{}\doxysection{ws\+REST Class Reference}
+\label{classws_r_e_s_t}\index{wsREST@{wsREST}}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classws_r_e_s_t_a5f5849ef35f033afd73607202706ccf6}{sevicio\+APOD}} (\$fecha)
+\item 
+static \mbox{\hyperlink{classws_r_e_s_t_aac5170ecbf1abc928e7ed9c3ecfc8a99}{servicio\+Public\+APIS}} (\$titulo)
+\item 
+static \mbox{\hyperlink{classws_r_e_s_t_ae30c34c234507e916e432cb42ca4c7c5}{servicio\+Calculadora}} (\$tipo, \$num1, \$num2)
+\item 
+\mbox{\Hypertarget{classws_r_e_s_t_ac54ced366fc117883220ea9614cd51d8}\label{classws_r_e_s_t_ac54ced366fc117883220ea9614cd51d8}} 
+static {\bfseries servicio\+Buscar\+Departamentos\+Por\+Descripcion} (\$descripcion)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Clase \mbox{\hyperlink{classws_r_e_s_t}{ws\+REST}}
+
+Clase con funciones para llamar a web services
+
+\begin{DoxyAuthor}{Author}
+Nacho del Prado Losada 
+\end{DoxyAuthor}
+\begin{DoxySince}{Since}
+27/01/2021 
+\end{DoxySince}
+\begin{DoxyVersion}{Version}
+27/01/2021 
+\end{DoxyVersion}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classws_r_e_s_t_ae30c34c234507e916e432cb42ca4c7c5}\label{classws_r_e_s_t_ae30c34c234507e916e432cb42ca4c7c5}} 
+\index{wsREST@{wsREST}!servicioCalculadora@{servicioCalculadora}}
+\index{servicioCalculadora@{servicioCalculadora}!wsREST@{wsREST}}
+\doxysubsubsection{\texorpdfstring{servicioCalculadora()}{servicioCalculadora()}}
+{\footnotesize\ttfamily static servicio\+Calculadora (\begin{DoxyParamCaption}\item[{}]{\$tipo,  }\item[{}]{\$num1,  }\item[{}]{\$num2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Función servicio\+Calculadora
+
+Permite sumar, restar, multiplicar y dividir dos números
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$tipo} & Tipo de operación \\
+\hline
+float & {\em \$num1} & \\
+\hline
+float & {\em \$num2} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string Resultado 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classws_r_e_s_t_aac5170ecbf1abc928e7ed9c3ecfc8a99}\label{classws_r_e_s_t_aac5170ecbf1abc928e7ed9c3ecfc8a99}} 
+\index{wsREST@{wsREST}!servicioPublicAPIS@{servicioPublicAPIS}}
+\index{servicioPublicAPIS@{servicioPublicAPIS}!wsREST@{wsREST}}
+\doxysubsubsection{\texorpdfstring{servicioPublicAPIS()}{servicioPublicAPIS()}}
+{\footnotesize\ttfamily static servicio\+Public\+APIS (\begin{DoxyParamCaption}\item[{}]{\$titulo }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Función servicio\+Public\+APIS
+
+Devuelve una API si se encuentra con el título indicado
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$titulo} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+type 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classws_r_e_s_t_a5f5849ef35f033afd73607202706ccf6}\label{classws_r_e_s_t_a5f5849ef35f033afd73607202706ccf6}} 
+\index{wsREST@{wsREST}!sevicioAPOD@{sevicioAPOD}}
+\index{sevicioAPOD@{sevicioAPOD}!wsREST@{wsREST}}
+\doxysubsubsection{\texorpdfstring{sevicioAPOD()}{sevicioAPOD()}}
+{\footnotesize\ttfamily static sevicio\+APOD (\begin{DoxyParamCaption}\item[{}]{\$fecha }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Función servicio\+APOD
+
+Llama al servicio API REST APOD(\+Astronomy Picture of the Day), que nos devuelve la imagen atronómica del día e información relativa a esta.
+
+
+\begin{DoxyParams}[1]{Parameters}
+type & {\em \$fecha} & la fecha que le vamos a pasar al servicio para que busque una imagen. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+type array que contiene información sobre la imagen astronómica del día. 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Author}
+Susana Fabián Antón 
+\end{DoxyAuthor}
+\begin{DoxySince}{Since}
+26/01/2021 
+\end{DoxySince}
+\begin{DoxyVersion}{Version}
+26/01/2021 
+\end{DoxyVersion}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+model/ws\+REST.\+php\end{DoxyCompactItemize}

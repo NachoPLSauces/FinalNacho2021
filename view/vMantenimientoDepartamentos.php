@@ -9,12 +9,13 @@
                         echo $_REQUEST['DescDepartamento'];
                     }
                 ?>"/>
+                <input class="botonBuscar" type="submit" value="BUSCAR" name="buscar"/>
             </div>
 
             <div class="topBar">
-                <a href="#">EXPORTAR</a>
-                <a href="#">IMPORTAR</a>
-                <a href="#">AÑADIR</a>
+                <input class="botonBuscar" type="submit" value="EXPORTAR" name="exportar"/>
+                <input class="botonBuscar" type="submit" value="IMPORTAR" name="importar"/>
+                <input class="botonBuscar" type="submit" value="AÑADIR" name="añadir"/>
             </div>
         </form>
     </div>
@@ -27,15 +28,14 @@
             <p>VolumenNegocio</p>
             <p></p>
         </header>
-        <div class="departamentos" id="departamentosEncontrados">
+        <form class="departamentos" id="departamentosEncontrados">
             <?php echo $mostrarDepartamentosEncontrados; ?>
-        </div>
+        </form>
     </div>
 
-    <div class="botBar">
+    <form class="botBar">
         <div>
-            <a href="../MtoDeDepartamentosTema4/mostrarCodigo/muestraMtoDepartamentosTema4.php">MOSTRAR CÓDIGO</a>
-            <a href="../proyectoDWES/indexProyectoDWES.php">VOLVER</a>
+            <input class="botonBuscar" type="submit" value="VOLVER" name="volver"/>
         </div>
-    </div>
+    </form>
 </main>
