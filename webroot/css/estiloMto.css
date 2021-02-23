@@ -7,42 +7,53 @@
 
 body{
     height: 100vh;
+    width: 100vw;
     overflow: auto;
 }
 a {
     text-decoration: none;
 }
 
-header{
+body>header{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: 100vw;
     background-color: cadetblue;
-    height: 10vh;
+    min-height: 10vh;
+    height: auto;
+    padding: 10px;
+    
 }
-header *{
-    display: table-cell;
-    text-align: center;
-    width: 100%;height: 64px;
+header h1{
+    display: flex;
+    min-width: 100%;height: auto;
+    width: auto;
     font-size: 3rem;
     line-height: 64px;
-    vertical-align: middle;
+    justify-content: center;
+    align-items: center;
     color: white;
     font-weight: bold;
 }
 main{
-    width: 100%;
+    min-width: 100vw;
+    width: auto;
     padding: 5vh;
     height: auto;
     min-height: 80vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 .buscarDepartamentos{
     width: 100%;height: auto;
 }
 .buscarDepartamentos form{
-    width: 100%;height: auto;
+    min-width: 100%;
+    width: auto;height: auto;
     margin-right: auto;
     line-height: 48px;
     display: flex;
@@ -97,48 +108,57 @@ main{
 
 
 .mostrarDepartamentos{
-    width: 100%;height: auto;
+    height: auto;  
+    min-width: 800px;
+    width: auto;  
     max-height: 400px;
     overflow: auto;
+    margin: auto;
     margin-top: 20px;
     border-radius: 4px;
     box-shadow: 0 0 30px 0 rgba(0,0,0,.20);
 }
 .mostrarDepartamentos header{
-    width: 100%;height: 60px;
+    min-width: 100%;width: auto;
+    height: 60px;
     position: sticky;
     top: 0;
     display: flex;
     flex-flow: row nowrap;
-    justify-content: space-around;
+    justify-content: space-between;
+    padding: 0 10px;
     align-items: center;
     background-color: #212529;
     color: white;
 }
-.mostrarDepartamentos header p{
+.mostrarDepartamentos header div{
     width: auto;height: 100%;
     margin: 0;
     text-align: left;
     display: flex;
     align-items: center;
+    border: 1px solid red;
+}
+.mostrarDepartamentos header div p{
+    
     color: white;
 }
-.mostrarDepartamentos header p:nth-of-type(1){width: 18%;}
-.mostrarDepartamentos header p:nth-of-type(2){width: 30%}
-.mostrarDepartamentos header p:nth-of-type(3){width: 12%}
-.mostrarDepartamentos header p:nth-of-type(4){width: 16%}
-.mostrarDepartamentos header p:nth-of-type(5){width: 15%}
+.mostrarDepartamentos header div:nth-of-type(1){min-width: 17%;}
+.mostrarDepartamentos header div:nth-of-type(2){min-width: 30%}
+.mostrarDepartamentos header div:nth-of-type(3){min-width: 13%}
+.mostrarDepartamentos header div:nth-of-type(4){min-width: 16%}
+.mostrarDepartamentos header div:nth-of-type(5){min-width: 15%;width: auto;}
 
-.departamentos{
-    width: 100%;height: auto;
-}
+
 .filaDep{
     text-align: left;
-    height: 60px; width: 100%;
+    height: 60px; min-width: 100%;
+    width: auto;
     display: flex;
     flex-flow: row nowrap;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
+    padding: 0 10px;
 }
 .filaDep:nth-child(even) {
     background-color: #f3f3f3;
@@ -151,15 +171,19 @@ main{
     color: black;
     background-color: #f2f2f2;
 }
-.filaDep img{
+.filaDep p{
+    width: auto;
+    border: 1px solid blue;
+}
+.filaDep p input{
     height: 32px;
     width: 32px !important;
 }
-.filaDep p:nth-of-type(1){width: 18%;}
-.filaDep p:nth-of-type(2){width: 30%}
-.filaDep p:nth-of-type(3){width: 12%}
-.filaDep p:nth-of-type(4){width: 16%}
-.filaDep p:nth-of-type(5){width: 15%}
+.filaDep p:nth-of-type(1){min-width: 17%;}
+.filaDep p:nth-of-type(2){min-width: 30%}
+.filaDep p:nth-of-type(3){min-width: 13%}
+.filaDep p:nth-of-type(4){min-width: 16%}
+.filaDep p:nth-of-type(5){min-width: 15%;}
 
 .sinDepartamentos{
     color: red !important;
@@ -187,13 +211,13 @@ main{
     font-weight: bold;
 }
 
-
 footer {
     display: flex;
     flex-flow: row nowrap;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    min-width: 100vw;
+    width: auto;
     height: auto;
     min-height: 10vh;
     padding: 5px;
@@ -205,7 +229,7 @@ footer {
 }
 .enlaces{
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: row wrap;
     justify-content: center;
     align-items: center;
     margin-right: auto;
@@ -217,11 +241,13 @@ footer {
 }
 .enlaces a{
     margin-right: 40px;
+    margin-bottom: 10px;
 }
 .nombre{
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
+    flex-wrap: wrap;
     align-items: center;
     margin-right: 40px;
 }
@@ -241,7 +267,7 @@ p{
 /*--------------*/
 
 .formulario{
-    height: auto;width: 100%;
+    height: auto;width: auto;
     padding-top: 30px;
 }
 .formulario fieldset{

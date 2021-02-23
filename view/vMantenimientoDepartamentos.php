@@ -2,7 +2,6 @@
     <div class="buscarDepartamentos">
         <form name="input" action="<?php $_SERVER['PHP_SELF']?>" method="post">
             <div class="descripcion">
-                <label>Descripción </label>
                 <input name="DescDepartamento" id="DescDepartamento" type="text" placeholder="Descripción del departamento" value="<?php 
                     //Devuelve el campo campoDescDepartamento
                     if(isset($_REQUEST['DescDepartamento'])){
@@ -22,11 +21,19 @@
 
     <div class="mostrarDepartamentos">
         <header>
-            <p>CodDepartamento</p>
-            <p>DescDepartamento</p>
-            <p>FechaBaja</p>
-            <p>VolumenNegocio</p>
-            <p></p>
+            <div>
+                <p>CodDepartamento</p>
+            </div>
+            <div>
+                <p>DescDepartamento</p>
+            </div>
+            <div>
+                <p>FechaBaja</p>
+            </div>
+            <div>
+                <p>VolumenNegocio</p>
+            </div>
+            <div></div>
         </header>
         <form class="departamentos" id="departamentosEncontrados">
             <?php echo $mostrarDepartamentosEncontrados; ?>

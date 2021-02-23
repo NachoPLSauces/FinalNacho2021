@@ -59,7 +59,7 @@ if($oDepartamento == null){
             $mostrarDepartamentosEncontrados .= "<p>null</p>";
             $mostrarDepartamentosEncontrados .= "<p>".$departamento["volumen"]."</p>";
         }
-        $mostrarDepartamentosEncontrados .= "<p><a href='#'><img src='webroot/media/img/editar.png'></a><a href='#'><img src='webroot/media/img/mostrar.png'></a><a href='#'><img src='webroot/media/img/papelera.png'></a></p></div>";
+        $mostrarDepartamentosEncontrados .= "<p><input type='image' alt='editar' src='webroot/media/img/editar.png'><input type='image' alt='mostrar' src='webroot/media/img/mostrar.png'><input type='image' alt='borrar' src='webroot/media/img/papelera.png'></p></div>";
     }
 }
 
