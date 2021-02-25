@@ -140,7 +140,7 @@ main{
     border: 1px solid red;
 }
 .mostrarDepartamentos header div p{
-    
+    font-weight: bold;
     color: white;
 }
 .mostrarDepartamentos header div:nth-of-type(1){min-width: 17%;}
@@ -175,7 +175,11 @@ main{
     width: auto;
     border: 1px solid blue;
 }
-.filaDep p input{
+.filaDep p button{
+    border: none;
+    background-color: transparent;
+}
+.filaDep p button img{
     height: 32px;
     width: 32px !important;
 }

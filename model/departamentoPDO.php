@@ -30,16 +30,40 @@
             while ($departamento != null){
                 $aDepartamento[] = ["codigo" => $departamento->CodDepartamento,
                                     "descripcion" => $departamento->DescDepartamento,
-                                    "fechaBaja" => $departamento->FechaBaja,
+                                    "fechaBaja" => $departamento->FechaBajaDepartamento,
                                     "volumen" => $departamento->VolumenNegocio];
-
                 $departamento = $resultado->fetchObject();
             }
             
             return $aDepartamento;
         }
         
-        
+        /**
+         * Función buscarDepartamentoPorCodigo
+         * 
+         * Busca un departamenro por el código
+         * 
+         * @param string $descripcion Cadena para buscar departamentos
+         * @return array Devuelve un array con lo departamentos encontrados
+         */
+        public static function buscarDepartamentoPorCodigo($codigo) {
+            $aDepartamento = null;
+            
+            $sql="SELECT * FROM Departamento WHERE DescDepartamento=?"; 
+            $resultado = DBPDO::consultaSQL($sql, [$codigo]); //Se almacena el resultado de la consulta
+            
+            $departamento = $resultado->fetchObject();
+                
+            //Se almacenan los departamentos encontrados en una array
+            if($departamento != null){
+                $aDepartamento = ["codigo" => $departamento->CodDepartamento,
+                                    "descripcion" => $departamento->DescDepartamento,
+                                    "fechaBaja" => $departamento->FechaBajaDepartamento,
+                                    "volumen" => $departamento->VolumenNegocio];
+            }
+            
+            return $aDepartamento;
+        }
     }
 
 ?>

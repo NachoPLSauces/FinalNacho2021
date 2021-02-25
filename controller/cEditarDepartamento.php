@@ -22,26 +22,24 @@ if(isset($_REQUEST['volver'])){
 }
 
 //Cargar los campos del departamento seleccionado
-$oDepartamento = "";
-    
+$aDepartamento = departamentoPDO::buscarDepartamentoPorCodigo($_SESSION["codDepartamento"]);
+var_dump($aDepartamento);
 //Almaceno el contenido de los campos en variables
-$descripcion = $registro->DescDepartamento;
-$fechaBaja = $registro->FechaBaja;
-$volumenNegocio = $registro->VolumenNegocio;
+$descripcion = $aDepartamento["descripcion"];
+$fechaBaja = $aDepartamento["fechaBaja"];
+$volumenNegocio = $aDepartamento["volumen"];
 
 //Array de errores inicializado a null
 $aErrores = ["descripcion" => null,
              "volumenNegocio" => null];
 
-//Variable obligatorio inicializada a 1
-define("OBLIGATORIO", 1);
+define("OBLIGATORIO", 1); //Variable obligatorio inicializada a 1
 
 //Variables MAX_FLOAT y MIN_FLOAT de los números máximos y mímimos permitidos
 define ('MAX_FLOAT', 3.402823466E+38);
 define ('MIN_FLOAT', -3.402823466E+38);
 
-//Varible de entrada correcta inicializada a true
-$entradaOK = true;   
+$entradaOK = true; //Varible de entrada correcta inicializada a true 
 
 if(isset($_REQUEST['editar'])){
     //Comprobar que el campo descripción se ha rellenado con alfanuméricos
@@ -96,4 +94,8 @@ if($entradaOK){
         unset($miDB);
     }
 }
+
+//Incluimos la lógica de la vista
+$vista = $vistas['editarDepartamento'];
+require_once $vistas['layoutMto'];
 ?>

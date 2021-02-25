@@ -21,6 +21,14 @@ if(isset($_REQUEST['volver'])){
     exit;
 }
 
+//Si el usuario pulsa editar en un departamento el dirijo a editarDepartamento
+if(isset($_REQUEST['editar'])){
+    $_SESSION['codDepartamento'] = $_REQUEST["editar"];
+    $_SESSION['paginaEnCurso'] = $controladores['editarDepartamento'];
+    header("Location: index.php");
+    exit;
+}
+
 $aErrores = ["DescDepartamento" => null]; //Array de errores inicializado a null
 $entradaOK = true; //Varible de entrada correcta inicializada a true          
 $aRespuestas = ["DescDepartamento" => null]; //Array de respuestas inicializado a null
@@ -41,7 +49,11 @@ else{
     $entradaOK = false;
 }
 
-$oDepartamento = departamentoPDO::buscarDepartamentoPorDescripcion($_REQUEST['DescDepartamento']); //Se buscan departamentos por la descripción
+if($entradaOK){
+    $oDepartamento = departamentoPDO::buscarDepartamentoPorDescripcion($_REQUEST['DescDepartamento']); //Se buscan departamentos por la descripción
+}else{
+    $oDepartamento = departamentoPDO::buscarDepartamentoPorDescripcion(""); //Se buscan todos los departamentos
+}
 $mostrarDepartamentosEncontrados = "";
 
 if($oDepartamento == null){
@@ -59,7 +71,7 @@ if($oDepartamento == null){
             $mostrarDepartamentosEncontrados .= "<p>null</p>";
             $mostrarDepartamentosEncontrados .= "<p>".$departamento["volumen"]."</p>";
         }
-        $mostrarDepartamentosEncontrados .= "<p><input type='image' alt='editar' src='webroot/media/img/editar.png'><input type='image' alt='mostrar' src='webroot/media/img/mostrar.png'><input type='image' alt='borrar' src='webroot/media/img/papelera.png'></p></div>";
+        $mostrarDepartamentosEncontrados .= "<p><button type='submit' name='editar' value='".$departamento["codigo"]."'><img src='webroot/media/img/editar.png' alt='editar'></button><button type='submit' name='mostrar' value='".$departamento["codigo"]."'><img src='webroot/media/img/mostrar.png'></button><button type='submit' name='borrar' value='".$departamento["codigo"]."'><img src='webroot/media/img/papelera.png'></button></p></div>";
     }
 }
 
