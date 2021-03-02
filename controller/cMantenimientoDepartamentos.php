@@ -60,6 +60,20 @@ if(isset($_REQUEST['alta'])){
     exit;
 }
 
+//Si el usuario pulsa exportar se le dirige a exportarDepartamentos
+if(isset($_REQUEST['exportar'])){
+    $_SESSION['paginaEnCurso'] = $controladores['exportar'];
+    header("Location: index.php");
+    exit;
+}
+
+//Si el usuario pulsa importar se le dirige a importarDepartamentos
+if(isset($_REQUEST['importar'])){
+    $_SESSION['paginaEnCurso'] = $controladores['importar'];
+    header("Location: index.php");
+    exit;
+}
+
 $aErrores = ["DescDepartamento" => null]; //Array de errores inicializado a null
 $entradaOK = true; //Varible de entrada correcta inicializada a true          
 $aRespuestas = ["DescDepartamento" => null]; //Array de respuestas inicializado a null

@@ -28,7 +28,9 @@
                     "añadirDepartamento" => "controller/cAñadirDepartamento.php",
                     "borrarDepartamento" => "controller/cBorrarDepartamento.php",
                     "bajaLogicaDepartamento" => "controller/cBajaLogicaDepartamento.php",
-                    "altaDepartamento" => "controller/cAltaDepartamento.php"];
+                    "altaDepartamento" => "controller/cAltaDepartamento.php",
+                    "exportar" => "controller/cExportarDepartamentos.php",
+                    "importar" => "controller/cImportarDepartamentos.php"];
     
     //Creamos un array que contiene las rutas de los archivos de la vista
     $vistas=["login" => "view/vLogin.php",
@@ -44,5 +46,7 @@
             "añadirDepartamento" => "view/vAñadirDepartamento.php",
             "borrarDepartamento" => "view/vBorrarDepartamento.php",
             "bajaLogicaDepartamento" => "view/vBajaLogicaDepartamento.php",
-            "altaDepartamento" => "view/vAltaDepartamento.php"];
+            "altaDepartamento" => "view/vAltaDepartamento.php",
+            "exportar" => "view/vExportarDepartamentos.php",
+            "importar" => "view/vImportarDepartamentos.php"];
 ?>

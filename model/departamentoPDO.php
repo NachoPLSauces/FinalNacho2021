@@ -133,6 +133,80 @@
             $sql = "UPDATE Departamento SET FechaBajaDepartamento=? WHERE CodDepartamento=?";
             DBPDO::consultaSQL($sql, [null, $codigo]);
         }
+        
+        /**
+         * Función exportarDepartamentos
+         * 
+         * Permite exportar los departamentos
+         * 
+         */
+        public static function exportarDepartamentos() {
+            $sql = "SELECT * from Departamento";
+            $aDepartamentos = DBPDO::consultaSQL($sql, []);
+
+            $dom = new DOMDocument("1.0", "utf-8"); //Creación variable tipo DOMDocument
+            $dom->formatOutput = true; //Se establece la salida formateada
+
+            $xmlTablaDepartamentos = $dom->appendChild($dom->createElement("TablaDepartamentos")); //Creo la raíz del documento xml
+
+            //Recorro las filas de la consulta sql
+            $departamento = $aDepartamentos->fetchObject();
+            while($departamento){
+                //Creo un elemento hijo de TablaDepartamentos
+                $xmlDepartamento = $xmlTablaDepartamentos->appendChild($dom->createElement("Departamento"));
+
+                //Creo los hijos de Departamento, que serán CodDepartamento, DescDepartamento, FechaBaja y VolumenNegocio
+                $xmlDepartamento->appendChild($dom->createElement("CodDepartamento", $departamento->CodDepartamento));
+                $xmlDepartamento->appendChild($dom->createElement("DescDepartamento", $departamento->DescDepartamento));
+                $xmlDepartamento->appendChild($dom->createElement("FechaBaja", $departamento->FechaBaja));
+                $xmlDepartamento->appendChild($dom->createElement("VolumenNegocio", $departamento->VolumenNegocio));
+
+                $departamento = $aDepartamentos->fetchObject();
+            }
+
+            $fechaActual = date("Ymd");
+            //Guardar el archivo xml
+            $dom->save("./tmp/".$fechaActual."TablaDepartamentos.xml");                
+
+            header('Content-Type: text/xml'); //Establecer el tipo de documento
+            header('Content-Disposition: attachment; filename='.$fechaActual.'TablaDepartamentos.xml');
+            readfile("./tmp/".$fechaActual."TablaDepartamentos.xml");
+            exit;
+        }
+        
+        /**
+         * Función importarDepartamentos
+         * 
+         * Permite importar los departamentos
+         * 
+         */
+        public static function importarDepartamentos($archivo) {
+            $importar = true;
+            $sql = "INSERT INTO Departamento (CodDepartamento, DescDepartamento, VolumenNegocio, FechaCreacionDepartamento, FechaBajaDepartamento) VALUES (?, ?, ?, ?, ?)";
+            move_uploaded_file($archivo, "tmp/copiaSeguridadDepartamentos.xml");
+            $dom = new DOMDocument("1.0", "utf-8"); //Creación variable tipo DOMDocument
+            $dom->load('tmp/copiaSeguridadDepartamentos.xml'); //Se establece la salida formateada
+
+            $numeroDepartamentos = $dom->getElementsByTagName("Departamento")->count();
+            for($numDepartamento = 0; $numDepartamento<$numeroDepartamentos; $numDepartamento++){
+                $codDepartamento = $dom->getElementsByTagName("CodDepartamento")->item($numDepartamento)->nodeValue;
+                $descDepartamento = $dom->getElementsByTagName("DescDepartamento")->item($numDepartamento)->nodeValue;
+                $volumenNegocio = $dom->getElementsByTagName("VolumenNegocio")->item($numDepartamento)->nodeValue;
+                $FechaBaja = $dom->getElementsByTagName("FechaBaja")->item($numeroDepartamento)->nodeValue;
+                if(empty($FechaBaja)){
+                    $FechaBaja = null;
+                }
+                
+                $resultado = DBPDO::consultaSQL($sql, [$codDepartamento, $descDepartamento, $volumenNegocio, time(), $FechaBaja]);
+            
+                if(!$resultado){
+                    $importar = false;
+                    exit;
+                }
+            }
+            
+            return $importar;
+        }
     }
 
 ?>

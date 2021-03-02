@@ -23,6 +23,7 @@
                 <a href="./doc/phpDoc/index.html" target="_blank"><img src="./webroot/media/img/phpDocLogo.png" alt="phpDoc"></a>
                 <a href="./doc/rss.xml" target="_blank"><img src="./webroot/media/img/rss.png" alt="rss"></a>
                 <a href="../../index.html"><img src="./webroot/media/img/home.png" alt="npl"></a>
+                <a href="./doc/IgnaciodelPradoLosadaCV.pdf" target="_blank"><img src="./webroot/media/img/cv.png" alt="cv"></a>
             </div>
             <div class="nombre">
                 <h3>Nacho del Prado Losada</h3>
