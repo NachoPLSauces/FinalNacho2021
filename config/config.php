@@ -24,7 +24,11 @@
                     "rest" => "controller/cRest.php",
                     "registro" => "controller/cRegistro.php",
                     "departamentos" => "controller/cMantenimientoDepartamentos.php",
-                    "editarDepartamento" => "controller/cEditarDepartamento.php"];
+                    "editarDepartamento" => "controller/cEditarDepartamento.php",
+                    "añadirDepartamento" => "controller/cAñadirDepartamento.php",
+                    "borrarDepartamento" => "controller/cBorrarDepartamento.php",
+                    "bajaLogicaDepartamento" => "controller/cBajaLogicaDepartamento.php",
+                    "altaDepartamento" => "controller/cAltaDepartamento.php"];
     
     //Creamos un array que contiene las rutas de los archivos de la vista
     $vistas=["login" => "view/vLogin.php",
@@ -36,5 +40,9 @@
             "layout" => "view/layout.php",
             "layoutMto" => "view/layoutMantenimiento.php",
             "departamentos" => "view/vMantenimientoDepartamentos.php",
-            "editarDepartamento" => "view/vEditarDepartamento.php"];
+            "editarDepartamento" => "view/vEditarDepartamento.php",
+            "añadirDepartamento" => "view/vAñadirDepartamento.php",
+            "borrarDepartamento" => "view/vBorrarDepartamento.php",
+            "bajaLogicaDepartamento" => "view/vBajaLogicaDepartamento.php",
+            "altaDepartamento" => "view/vAltaDepartamento.php"];
 ?>

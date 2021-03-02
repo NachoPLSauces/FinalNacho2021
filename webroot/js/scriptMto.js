@@ -27,7 +27,12 @@ $(document).ready(function(){
                 mostrar += "<p "; //Volumen de negocio
                 if(aDepartamentos[departamento]["fechaBaja"]){ mostrar += 'style="color: red !important"';}  
                 mostrar += ">" + aDepartamentos[departamento]["volumen"] + "</p>";
-                mostrar += "<p><a href='#'><img src='webroot/media/img/editar.png'></a><a href='#'><img src='webroot/media/img/mostrar.png'></a><a href='#'><img src='webroot/media/img/papelera.png'></a></p></div>";
+                mostrar += "<p><button type='submit' name='editar' value='" + aDepartamentos[departamento]["codigo"] + "'><img src='webroot/media/img/editar.png' alt='editar'></button><button type='submit' name='borrar' value='" + aDepartamentos[departamento]["codigo"] + "'><img src='webroot/media/img/bin.png'></button>";
+                if(aDepartamentos[departamento]["fechaBaja"]){
+                    mostrar += "<button type='submit' name='alta' value='" + aDepartamentos[departamento]["codigo"] + "'><img src='webroot/media/img/flechaArriba.png'></button></p></div>";
+                }else{
+                    mostrar += "<button type='submit' name='baja' value='" + aDepartamentos[departamento]["codigo"] + "'><img src='webroot/media/img/flechaAbajo.png'></button></p></div>";
+                }
             }
         }else{
             mostrar = "<td colspan='4' class='sinDepartamentos'>No se han encontrado departamentos</td>";

@@ -21,13 +21,7 @@ if(isset($_REQUEST['volver'])){
     exit;
 }
 
-//Cargar los campos del departamento seleccionado
-$aDepartamento = departamentoPDO::buscarDepartamentoPorCodigo($_SESSION["codDepartamento"]);
-var_dump($aDepartamento);
-//Almaceno el contenido de los campos en variables
-$descripcion = $aDepartamento["descripcion"];
-$fechaBaja = $aDepartamento["fechaBaja"];
-$volumenNegocio = $aDepartamento["volumen"];
+
 
 //Array de errores inicializado a null
 $aErrores = ["descripcion" => null,
@@ -58,41 +52,22 @@ if(isset($_REQUEST['editar'])){
 }
 else{
     $entradaOK = false;
+    
+    $aDepartamento = departamentoPDO::buscarDepartamentoPorCodigo($_SESSION["codDepartamento"]); //Cargar los campos del departamento seleccionado
+    //Almaceno el contenido de los campos en variables
+    $descripcion = $aDepartamento["descripcion"];
+    $fechaBaja = $aDepartamento["fechaBaja"];
+    $volumenNegocio = $aDepartamento["volumen"];
 }
 
-if($entradaOK){
-    //Mostrar registros de la tabla Departamento
-    try {
-        //Instanciar un objeto PDO y establecer la conexión con la base de datos
-        $miDB = new PDO(DSN, USER, PASSWORD);
-
-        //Establecer PDO::ERRMODE_EXCEPTION como valor del atributo PDO::ATTR_ERRMODE
-        $miDB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-        //Se crea una variable que almacena una consulta sql para insertar los valores en la tabla Departamento
-        $sql = "UPDATE Departamento SET DescDepartamento=:DescDepartamento, VolumenNegocio=:VolumenNegocio WHERE CodDepartamento=:CodDepartamento";
-
-        //Preparación de la consulta
-        $consulta = $miDB->prepare($sql);
-
-        //Llamada a bindParam
-        $consulta->bindParam(":CodDepartamento", $_GET['codDepartamento']);
-        $consulta->bindParam(":DescDepartamento", $_REQUEST['descripcion']);
-        $consulta->bindParam(":VolumenNegocio", $_REQUEST['volumenNegocio']);
-
-        //Ejecución de la consulta
-        $consulta->execute();
-
-        header("Location: ../indexMtoDepartamentosTema4.php");
-        exit;
-
-    } catch (PDOException $pdoe) {
-        //Mostrar mensaje de error
-        echo "<p style='color:red'>ERROR: " . $pdoe . "</p>";
-    } finally {
-        //Cerrar la conexión
-        unset($miDB);
-    }
+if($entradaOK){ //Se actualizan los campos del departamento y se dirige al usuario a la vista de Mantenimiento
+    $descripcion = $_REQUEST["descripcion"];
+    $volumenNegocio = $_REQUEST["volumenNegocio"];
+    
+    departamentoPDO::editarDepartamento($_SESSION["codDepartamento"], $descripcion, $volumenNegocio);
+    $_SESSION['paginaEnCurso'] = $controladores['departamentos'];
+    header("Location: index.php");
+    exit;
 }
 
 //Incluimos la lógica de la vista
