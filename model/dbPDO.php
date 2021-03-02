@@ -1,4 +1,6 @@
 <?php
+    require_once 'model/iDB.php';
+    
     /**
      * Clase DBPDO
      * 

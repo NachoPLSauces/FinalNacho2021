@@ -44,6 +44,13 @@ if (isset($_REQUEST['rest'])) {
     exit;
 } 
 
+//Si el usuario pulsa "departamentos" se le dirige a vMantenimientoDeDepartamentos
+if (isset($_REQUEST['departamentos'])) { 
+    $_SESSION['paginaEnCurso'] = $controladores['departamentos'];
+    header('Location: ./index.php'); 
+    exit;
+} 
+
 //Variables que guardan información del usuario
 $descripcionUsuario = $_SESSION["usuarioDAW202LoginLogoffMulticapa"]->getDescUsuario();
 $numConexiones = $_SESSION["usuarioDAW202LoginLogoffMulticapa"]->getNumConexiones();

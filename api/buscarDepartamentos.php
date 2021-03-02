@@ -1,8 +1,7 @@
 <?php
-//daw202.sauces.local/FinalNacho2021/api/buscarDepartamentos.php?descripcion=
+//https://daw202.ieslossauces.es/FinalNacho2021/api/buscarDepartamentos.php?descripcion=
 //Se incluyen la configuración de la base de datos y los ficheros del modelo necesarios
 require_once '../config/confDB.php';
-require_once '../model/iDB.php';
 require_once '../model/dbPDO.php';
 require_once '../model/departamentoPDO.php';
 

@@ -4,7 +4,7 @@ $(document).ready(function(){
     $("#descDepartamento").keyup(function(){
         var descDepartamento = $("#descDepartamento").val(); //Descripción introducida por el usuario
         
-        $.getJSON("http://daw202.ieslossauces.es/FinalNacho2021/api/buscarDepartamentos.php?", {descripcion: descDepartamento}, buscarDepartamentos); //Obtiene el JSON devuelto por la API
+        $.getJSON(("https://daw202.ieslossauces.es/FinalNacho2021/api/buscarDepartamentos.php?"), {descripcion: descDepartamento}, buscarDepartamentos); //Obtiene el JSON devuelto por la API
         
     });
     function buscarDepartamentos(aRespuesta){
@@ -78,7 +78,7 @@ $(document).ready(function(){
         var num1 = $("#num1").val(); //Primer número
         var num2 = $("#num2").val(); //Segundo número
         
-        $.getJSON("http://daw203.ieslossauces.es/AppFinalRaul2021/api/calculadora.php?", {operaciones: tipo, n1: num1, n2: num2}, calcularResultado); //Obtiene el JSON devuelto por la API
+        $.getJSON("https://daw203.ieslossauces.es/AppFinalRaul2021/api/calculadora.php?", {operaciones: tipo, n1: num1, n2: num2}, calcularResultado); //Obtiene el JSON devuelto por la API
     
         return false;
     });

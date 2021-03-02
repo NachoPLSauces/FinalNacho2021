@@ -10,11 +10,12 @@ body{
     height: 100vh;
 }
 header{    
-    display: table;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     background-color: cadetblue;
-    height: 10vh;    text-align: center;
-    vertical-align: middle;
+    height: 10vh; min-height: 70px;
 }
 header h1{
     display: block;
@@ -67,7 +68,8 @@ h2 a {
     
 }
 .content>.navegacion{
-    width: 48%;
+    min-width: 48%;
+    width: auto;
     height: auto;
     min-height: 100%;
     display: flex;
@@ -86,6 +88,29 @@ h2 a {
     margin: 0;
 }
 
+/* Navegación inicio */
+.contenedorInicio{
+    height: 100%;max-height: 100%;
+    width: 370px;max-width: 100%;
+    padding: 20px 0;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.iconoNavegacion{
+    width: 150px;height: 150px;
+    border: 1px solid grey;
+    border-radius: 3px;
+}
+.iconoNavegacion button{
+    width: 100%;height: 100%;
+    position: static;
+}
+.iconoNavegacion button img{
+    height: 100%;
+}
 /* Mapa de navegación */
 .contenedorNav{
     border: 1px solid grey;
@@ -313,7 +338,7 @@ button{
 }
 .flecha{
     position: sticky;
-    margin-left: 8px;
+    margin-left: 0px;
     margin-top: 15px;
     top: 15px;
 }

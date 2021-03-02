@@ -3,13 +3,11 @@
     <head>
         <meta charset="UTF-8">
         <meta name="author" content="Nacho del Prado Losada">
-        <link rel="stylesheet" href="webroot/css/estilo.css">
+        <link rel="stylesheet" href="webroot/css/estiloMto.css">
     </head>
     <body>
         <header>
-            <div class="title">
-                <h1>FinalNacho2021</h1>				
-            </div>
+            <h1>Mantenimiento de Departamentos</h1>
         </header>
         
         <?php

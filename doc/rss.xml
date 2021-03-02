@@ -5,42 +5,37 @@
         <link>http://daw202.ieslossauces.es/FinalNacho2021/</link>
         <description>Aplicación FinalNacho2021 del modulo DAW2</description>
         <language>es-es</language>
-        <author>Nacho del Prado Losada</author>
         <lastBuildDate>Sun, 07 Feb 2021 19:44:00 +0100</lastBuildDate>
         
         <item>
             <title>Introducción FinalNacho2021</title>
             <link>http://daw202.ieslossauces.es/FinalNacho2021/index.php</link>
-            <guid isPermalink="true">http://daw202.ieslossauces.es/FinalNacho2021/index.php</guid>
+            <guid>http://daw202.ieslossauces.es/FinalNacho2021/index.php/1</guid>
             <description>La aplicación permite iniciar y cerrar sesión, modificar tu cuenta, registrarte y borrar la cuenta. </description>
-            <author>Nacho del Prado Losada</author>
             <pubDate>Sun, 07 Feb 2021 19:44:00 +0100</pubDate>
         </item>
         
         <item>
             <title>Navegación de la web</title>
             <link>http://daw202.ieslossauces.es/FinalNacho2021/index.php</link>
-            <guid isPermalink="true">http://daw202.ieslossauces.es/FinalNacho2021/index.php</guid>
+            <guid>http://daw202.ieslossauces.es/FinalNacho2021/index.php/2</guid>
             <description>Se ha añadido en la página de login un apartado donde se pueden ver los archivos que indican las características de la aplicación.</description>
-            <author>Nacho del Prado Losada</author>
             <pubDate>Sun, 07 Feb 2021 19:44:00 +0100</pubDate>
         </item>
         
         <item>
             <title>Uso de API REST</title>
             <link>http://daw202.ieslossauces.es/FinalNacho2021/index.php</link>
-            <guid isPermalink="true">http://daw202.ieslossauces.es/FinalNacho2021/index.php</guid>
+            <guid>http://daw202.ieslossauces.es/FinalNacho2021/index.php/3</guid>
             <description>En el inicio se ha añadido un apartado "REST". Podemos ver el uso de diferentes APIs como APOD de la Nasa, un buscador de APIs públicas y una calculadora. También se usa un buscador de departamentos por descripción ofrecido por esta aplicación. </description>
-            <author>Nacho del Prado Losada</author>
             <pubDate>Sun, 07 Feb 2021 19:44:00 +0100</pubDate>
         </item>
         
         <item>
             <title>Validación de formularios y AYAX</title>
             <link>http://daw202.ieslossauces.es/FinalNacho2021/index.php</link>
-            <guid isPermalink="true">http://daw202.ieslossauces.es/FinalNacho2021/index.php</guid>
+            <guid>http://daw202.ieslossauces.es/FinalNacho2021/index.php/4</guid>
             <description>Se validan con JavaScript los campos del formulario de "Registro". Las APIs REST se visualizan utilizando AYAX con JQuery. </description>
-            <author>Nacho del Prado Losada</author>
             <pubDate>Fri, 12 Feb 2021 08:46:00 +0100</pubDate>
         </item>
     </channel>
