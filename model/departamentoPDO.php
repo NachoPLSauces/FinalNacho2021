@@ -197,11 +197,10 @@
                     $FechaBaja = null;
                 }
                 
-                $resultado = DBPDO::consultaSQL($sql, [$codDepartamento, $descDepartamento, $volumenNegocio, time(), $FechaBaja]);
+                $resultado = departamentoPDO::buscarDepartamentoPorCodigo($codDepartamento);
             
-                if(!$resultado){
-                    $importar = false;
-                    exit;
+                if($resultado == null){
+                    DBPDO::consultaSQL($sql, [$codDepartamento, $descDepartamento, $volumenNegocio, time(), $FechaBaja]);
                 }
             }
             

@@ -26,7 +26,7 @@ $errorArchivo = null;
 
 //Si el usuario pulsa importar se comprueba la extensión del archivo
 if(isset($_REQUEST['importar'])){
-    if ($_FILES['archivoImportar']['type'] != 'text/xml'){
+    if ($_FILES['archivo']['type'] != 'text/xml'){
         $errorArchivo = "El formato de archivo debe ser .xml";
     }
     
